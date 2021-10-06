@@ -603,6 +603,9 @@ $maxWidth: 1250;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
   &__phantom-block {}
 }

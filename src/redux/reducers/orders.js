@@ -6,11 +6,13 @@ let initialState = {
 
 const orders = (state = initialState, action) => {
   switch (action.type) {
-    case SET_ORDERS:
+    case SET_ORDERS: {
+      const ordersItems = action.payload.reduce((prev, obj) => [...prev, ...obj.items], []);
       return {
         ...state,
-        orders: action.payload,
+        orders: ordersItems,
       };
+    }
     default:
       return state;
   }

@@ -1,11 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
+
+import { useCart } from "../hooks/useCart";
 
 import { CartSvg, FavoriteSvg, ProfileSvg } from "../assets/svg/header";
 
 const Header = ({ showOverlay }) => {
-  const totalPrice = useSelector(({ home }) => home.totalPrice);
+  const { totalPrice } = useCart();
   return (
     <header className="header">
       <div className="header__inner">

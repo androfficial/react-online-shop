@@ -9,6 +9,5 @@ export const setOrders = (payload) => ({
 
 export const fetchOrdersData = () => async (dispatch) => {
   const { data } = await globalAPI.getOrders();
-  const ordersItems = data.reduce((prev, obj) => [...prev, ...obj.items], []);
-  dispatch(setOrders(ordersItems));
+  dispatch(setOrders(data));
 };

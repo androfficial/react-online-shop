@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCartData, setToCart } from "./redux/actions/cart";
 import { fetchFavotiresData, setToFavorites } from "./redux/actions/favorites";
 import { fetchOrdersData } from "./redux/actions/orders";
-import { fetchItemsData, setTotalSum } from "./redux/actions/home";
+import { fetchItemsData } from "./redux/actions/home";
 
 import Header from "./components/Header";
 import Home from "./pages/Home";
@@ -28,10 +28,6 @@ const App = () => {
     dispatch(fetchItemsData());
   }, []);
 
-  React.useEffect(() => {
-    getTotalAmount();
-  }, [cartItems]);
-
   const onAddToCart = (obj) => {
     dispatch(setToCart(cartItems, obj));
   };
@@ -46,11 +42,6 @@ const App = () => {
 
   const isFavAdded = (parentId) => {
     return favoritesItems.some((obj) => obj.parentId === parentId);
-  };
-
-  const getTotalAmount = () => {
-    const totalSum = cartItems.reduce((sum, obj) => obj.price + sum, 0);
-    dispatch(setTotalSum(totalSum));
   };
 
   return (
