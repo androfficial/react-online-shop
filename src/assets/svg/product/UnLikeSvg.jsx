@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const like = () => {
+const like = React.memo(() => {
   return (
     <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="white" />
@@ -10,6 +10,6 @@ const like = () => {
       />
     </svg>
   );
-};
+});
 
 export default like;

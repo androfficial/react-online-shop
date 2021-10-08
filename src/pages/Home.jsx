@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { clearInputField, setSearchValue } from "../redux/actions/search";
 
-import Product from "../components/Product";
 import { SearchSvg, CloseSvg } from "../assets/svg/home";
+import Product from "../components/Product";
+import HomeSlider from "../components/HomeSlider";
 
 const Home = ({ onAddToCart, onAddToFavorite, isItemAdded, isFavAdded }) => {
   const dispatch = useDispatch();
@@ -43,6 +44,11 @@ const Home = ({ onAddToCart, onAddToFavorite, isItemAdded, isFavAdded }) => {
 
   return (
     <>
+      <section className="main-slider">
+        <div className="main-slider__body">
+          <HomeSlider />
+        </div>
+      </section>
       <section className="products">
         <div className="products__top">
           <div className="products__text">

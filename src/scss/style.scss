@@ -30,6 +30,7 @@ $maxWidth: 1250;
   padding: 0px 0px 40px 0px;
 }
 ._container {
+  min-width: 0;
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
@@ -184,14 +185,176 @@ $maxWidth: 1250;
   }
 }
 
-
 .sneakers-slider {
   padding: 45px 0;
 }
 
+.main-slider {
+  @include adaptiv-value("padding-top", 45, 25, 1);
+  @include adaptiv-value("padding-bottom", 45, 25, 1);
+  &__body {
+    background-color: #F4EFE9;
+    border-radius: 20px;
+    position: relative;
+    .swiper-arrows {
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      transform: translate(0px, -50%);
+      left: -18px;
+      z-index: 5;
+      display: grid;
+      grid-auto-flow: row;
+      grid-template-columns: repeat(2, 36px);
+      align-items: start;
+      justify-content: space-between;
+      width: calc(100% + 36px);
+      .swiper-arrow {       
+        pointer-events: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: #fff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
+        transition: opacity .3s ease 0s, visibility .3s ease 0s, background-color .3s ease 0s;
+        &__prev,
+        &__next {
+          svg {
+            width: 7px;
+            height: 12px;
+            path {
+              stroke: #C8C8C8;
+              transition: stroke .3s ease 0s;
+            }
+          }
+        }
+        &__prev {
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+        &__next {
+          svg {}
+        }
+        &.swiper-button-disabled {
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+        }
+        @media (min-width: 992px) {
+          &:hover {
+            background-color: lighten(#000, 12%);
+            svg {
+              path {
+                stroke: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &__slide {}
+}
+
+.slide {
+  display: flex;
+  @media (max-width: 992px) {
+    position: relative;
+    min-height: 200px;
+  }
+  &__body {
+    flex: 1 1 auto;
+    padding: 20px;
+    @media (max-width: 991px) {
+      text-align: center;
+      @include adaptiv-value("padding", 20, 5, 1);
+    }    
+  }
+  &__logo {
+    @include adaptiv-value("width", 99, 75, 1);
+    @include adaptiv-value("height", 40, 30, 1);
+    &:not(:last-child) {
+      @include adaptiv-value("margin-bottom", 32, 18, 1);
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__content {
+    padding-left: 40px;
+    @media (max-width: 991px) {
+      padding: 0px 13px;
+    }   
+  }
+  &__title {
+    font-weight: 700;
+    @include adaptiv-value("font-size", 38, 24, 1);
+    line-height: 130%;
+    color: #8BB43C;
+    span {
+      color: #000;
+    }
+    &:not(:last-child) {
+      margin: 0px 0px 12px 0px;
+    }
+  }
+  &__link {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background-color: #A5D364;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    @include adaptiv-value("height", 47, 40, 1);
+    border-radius: 110px;
+    padding: 0 5px;
+    @include adaptiv-value("min-width", 177, 150, 1);
+    transition: background-color .3s ease 0s;
+    @media (min-width: 992px) {
+      &:hover {
+        background-color: darken(#A5D364, 10%);
+      }
+    }
+  }
+  &__picture {
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @media (max-width: 991px) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+    }    
+    @media (min-width: 992px) {
+      display: block;
+      flex: 0 0 640px;
+      padding: 0px 0px 300px / 960px * 100% 0px;
+      overflow: hidden;
+      position: relative;
+    }
+  }
+}
 
 .products {
-  @include adaptiv-value("padding-top", 45, 25, 1);
   @include adaptiv-value("padding-bottom", 45, 25, 1);
   &__top {
     display: flex;
