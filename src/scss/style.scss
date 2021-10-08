@@ -36,9 +36,14 @@ $maxWidth: 1250;
   flex-direction: column;
   max-width: 960px;
   margin: 0 auto;
-  @include adaptiv-value("padding-right", 60, 15, 1);
-  @include adaptiv-value("padding-left", 60, 15, 1);
+  padding: 0 60px;
   box-sizing: content-box;
+  @media (max-width: 992px) {
+    padding: 0 30px; 
+  }
+  @media (max-width: 768px) {
+    padding: 0 15px; 
+  }
 }
 
 .header {

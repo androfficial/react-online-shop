@@ -5,9 +5,10 @@ const ProductLoading = () => {
   return (
     <ContentLoader
       speed={2}
-      width={155}
+      width="100%"
       height={250}
       viewBox="0 0 155 265"
+      preserveAspectRatio="none"
       backgroundColor="#f3f3f3"
       foregroundColor="#ecebeb"
     >
