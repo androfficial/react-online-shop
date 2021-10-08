@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { numberWithSpaces } from '../hooks/useCart';
+import { numberWithSpaces } from '../../hooks/useCart';
 
-import { AddedSvg, UnLikeSvg, NoAddedSvg, LikeSvg } from '../assets/svg/product';
-import ProductLoading from './ProductLoading';
+import { AddedSvg, UnLikeSvg, NoAddedSvg, LikeSvg } from '../../assets/svg/product';
+import ProductLoadingSkeleton from './ProductLoadingSkeleton';
 
 const Product = ({
   id,
@@ -70,7 +70,7 @@ const Product = ({
           </div>
         </article>
       ) : (
-        <ProductLoading />
+        <ProductLoadingSkeleton />
       )}
     </>
   );

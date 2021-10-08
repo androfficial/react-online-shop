@@ -1,7 +1,7 @@
 import React from "react";
 
-import Product from "../components/Product";
-import Empty from "../components/Empty";
+import Product from "../components/product/Product";
+import Empty from "../components/auxiliary-components/Empty";
 import { useSelector } from "react-redux";
 
 const Orders = () => {

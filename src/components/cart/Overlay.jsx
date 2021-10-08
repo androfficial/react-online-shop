@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { cartItemDel, checkout } from "../redux/actions/cart";
-import { numberWithSpaces, useCart } from "../hooks/useCart";
+import { cartItemDel, checkout } from "../../redux/actions/cart";
+import { numberWithSpaces, useCart } from "../../hooks/useCart";
 
-import { CloseSvg } from "../assets/svg/home";
-import { ArrowRightSvg } from "../assets/svg/overlay";
-import Info from "./Info";
+import { CloseSvg } from "../../assets/svg/home";
+import { ArrowRightSvg } from "../../assets/svg/overlay";
+import Info from "../auxiliary-components/Info";
 
 const Overlay = ({ visible, closeOverlay }) => {
   const dispatch = useDispatch();

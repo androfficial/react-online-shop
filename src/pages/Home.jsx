@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearInputField, setSearchValue } from "../redux/actions/search";
 
 import { SearchSvg, CloseSvg } from "../assets/svg/home";
-import Product from "../components/Product";
-import HomeSlider from "../components/HomeSlider";
+import Product from "../components/product/Product";
+import HomeSlider from "../components/home-slider/HomeSlider";
 
 const Home = ({ onAddToCart, onAddToFavorite, isItemAdded, isFavAdded }) => {
   const dispatch = useDispatch();

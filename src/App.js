@@ -7,11 +7,11 @@ import { fetchFavotiresData, setToFavorites } from "./redux/actions/favorites";
 import { fetchOrdersData } from "./redux/actions/orders";
 import { fetchItemsData } from "./redux/actions/home";
 
-import Header from "./components/Header";
+import Header from "./components/header/Header";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import Orders from "./pages/Orders";
-import Overlay from "./components/Overlay";
+import Overlay from "./components/cart/Overlay";
 
 const App = () => {
   const dispatch = useDispatch();

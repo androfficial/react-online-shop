@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import Empty from "../components/Empty";
-import Product from "../components/Product";
+import Empty from "../components/auxiliary-components/Empty";
+import Product from "../components/product/Product";
 
 const Favorites = ({
   onAddToCart,

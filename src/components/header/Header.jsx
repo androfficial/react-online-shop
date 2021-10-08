@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
-import { useCart } from "../hooks/useCart";
+import { useCart } from "../../hooks/useCart";
 
-import { CartSvg, FavoriteSvg, ProfileSvg } from "../assets/svg/header";
+import { CartSvg, FavoriteSvg, ProfileSvg } from "../../assets/svg/header";
 
 const Header = ({ showOverlay }) => {
   const { totalPriceWithSpaces } = useCart();

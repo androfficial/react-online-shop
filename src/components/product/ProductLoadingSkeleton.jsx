@@ -1,7 +1,7 @@
 import React from "react";
 import ContentLoader from "react-content-loader";
 
-const ProductLoading = () => {
+const ProductLoadingSkeleton = () => {
   return (
     <ContentLoader
       speed={2}
@@ -21,4 +21,4 @@ const ProductLoading = () => {
   );
 };
 
-export default ProductLoading;
+export default ProductLoadingSkeleton;

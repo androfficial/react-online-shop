@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-import ArrowLeftSvg from '../assets/svg/overlay/ArrowLeftSvg';
+import ArrowLeftSvg from '../../assets/svg/overlay/ArrowLeftSvg';
 
-const Info = ({ imageUrl, title, text }) => {
+const Info = ({ imageUrl, title, text, handleCloseOverlay }) => {
   return (
     <div className="overlay__phantom-block phantom-block">
-      <div className="phantom-block__picture">
+      <div className="phantom-block__picture phantom-block__picture--info">
         <img src={imageUrl} alt="Декор" />
       </div>
       <div className="phantom-block__info">
@@ -16,10 +15,10 @@ const Info = ({ imageUrl, title, text }) => {
         </p>
       </div>
       <div className="phantom-block__go-back">
-        <Link to="/" className="phantom-block__btn green-button">
+        <button onClick={handleCloseOverlay} className="phantom-block__btn green-button">
           <ArrowLeftSvg />
           Вернуться назад
-        </Link>
+        </button>
       </div>
     </div>
   );
