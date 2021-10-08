@@ -319,7 +319,7 @@ $maxWidth: 1250;
     @include adaptiv-value("height", 47, 40, 1);
     border-radius: 110px;
     padding: 0 5px;
-    @include adaptiv-value("min-width", 177, 150, 1);
+    @include adaptiv-value("min-width", 177, 130, 1);
     transition: background-color .3s ease 0s;
     @media (min-width: 992px) {
       &:hover {
