@@ -6,7 +6,7 @@ import { useCart } from "../hooks/useCart";
 import { CartSvg, FavoriteSvg, ProfileSvg } from "../assets/svg/header";
 
 const Header = ({ showOverlay }) => {
-  const { totalPrice } = useCart();
+  const { totalPriceWithSpaces } = useCart();
   return (
     <header className="header">
       <div className="header__inner">
@@ -24,7 +24,7 @@ const Header = ({ showOverlay }) => {
             <button className="header__btn header__btn--cart">
               <CartSvg />
             </button>
-            <span className="header__item-price">{totalPrice} руб.</span>
+            <span className="header__item-price">{totalPriceWithSpaces} руб.</span>
           </li>
           <li className="header__item">
             <NavLink

@@ -1,7 +1,9 @@
 import React from 'react';
 
-import ProductLoading from './ProductLoading';
+import { numberWithSpaces } from '../hooks/useCart';
+
 import { AddedSvg, UnLikeSvg, NoAddedSvg, LikeSvg } from '../assets/svg/product';
+import ProductLoading from './ProductLoading';
 
 const Product = ({
   id,
@@ -53,7 +55,7 @@ const Product = ({
           <div className="item-product__info-order">
             <span className="item-product__title">Цена:</span>
             <div className="item-product__details">
-              <span className="item-product__price">{price} руб.</span>
+              <span className="item-product__price">{numberWithSpaces(price)} руб.</span>
               {onAddToCart && (
                 <button
                   onClick={handleAddToCart}

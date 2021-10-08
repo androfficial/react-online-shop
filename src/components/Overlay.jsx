@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { cartItemDel, checkout } from "../redux/actions/cart";
-import { useCart } from "../hooks/useCart";
+import { numberWithSpaces, useCart } from "../hooks/useCart";
 
 import { CloseSvg } from "../assets/svg/home";
 import { ArrowRightSvg } from "../assets/svg/overlay";
@@ -10,7 +10,7 @@ import Info from "./Info";
 
 const Overlay = ({ visible, closeOverlay }) => {
   const dispatch = useDispatch();
-  const { totalPrice } = useCart();
+  const { taxWithSpaces, totalPriceWithSpaces } = useCart();
   const { cartItems, itemIsRemoved, orderInProcessed, orderId, inOrderPlaced } =
     useSelector(({ cart }) => ({
       cartItems: cart.cartItems,
@@ -61,8 +61,6 @@ const Overlay = ({ visible, closeOverlay }) => {
     dispatch(checkout(cartItems));
   };
 
-  let tax = +((totalPrice * 5) / 100).toFixed(2);
-
   return (
     <div className={`overlay ${visible ? "_active" : ""}`}>
       <div ref={overlayRef} className="overlay__body">
@@ -84,7 +82,7 @@ const Overlay = ({ visible, closeOverlay }) => {
                       </div>
                       <div className="overlay__info-order">
                         <p className="overlay__text">{obj.title}</p>
-                        <span className="overlay__price">{obj.price} руб.</span>
+                        <span className="overlay__price">{numberWithSpaces(obj.price)} руб.</span>
                       </div>
                       <button
                         disabled={itemIsRemoved}
@@ -102,12 +100,12 @@ const Overlay = ({ visible, closeOverlay }) => {
                   <div className="info-order__in-total">
                     <span className="info-order__total">Итого:</span>
                     <div></div>
-                    <span className="info-order__price">{totalPrice} руб.</span>
+                    <span className="info-order__price">{totalPriceWithSpaces} руб.</span>
                   </div>
                   <div className="info-order__tax">
                     <span className="info-order__total">Налог 5%:</span>
                     <div></div>
-                    <span className="info-order__price">{tax} руб.</span>
+                    <span className="info-order__price">{taxWithSpaces} руб.</span>
                   </div>
                 </div>
                 <div className="info-order__bottom">
