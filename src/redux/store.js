@@ -1,22 +1,16 @@
-import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import { createStore, compose, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
-import cart from './reducers/cart';
-import favorites from './reducers/favorites';
-import orders from './reducers/orders';
-import search from './reducers/search';
-import home from './reducers/home';
+import rootReducer from "./reducers";
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers =
+  (typeof window !== "undefined" &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
 
-const reducers = combineReducers({
-  cart,
-  favorites,
-  orders,
-  search,
-  home,
-});
-
-const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
 
 export default store;
