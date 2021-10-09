@@ -1,38 +1,31 @@
 import { globalAPI } from "../../api/api";
-
-import {
-  SET_CART_ITEMS,
-  SET_ORDER_STATUS,
-  DEL_CART_ITEM,
-  ITEM_IS_REMOVED,
-  GET_ORDER_ID,
-} from "../vars/vars";
+import { actionTypes } from "./actionTypes";
 
 import { setToggleLoading } from "./home";
 import { fetchOrdersData } from "./orders";
 
 export const setCartItems = (payload) => ({
-  type: SET_CART_ITEMS,
+  type: actionTypes.SET_CART_ITEMS,
   payload,
 });
 
 export const delCartItem = (payload) => ({
-  type: DEL_CART_ITEM,
+  type: actionTypes.DEL_CART_ITEM,
   payload,
 });
 
 export const itemIsRemoved = (payload) => ({
-  type: ITEM_IS_REMOVED,
+  type: actionTypes.ITEM_IS_REMOVED,
   payload,
 });
 
 export const setOrderStatus = (payload) => ({
-  type: SET_ORDER_STATUS,
+  type: actionTypes.SET_ORDER_STATUS,
   payload,
 });
 
 export const getOrderId = (payload) => ({
-  type: GET_ORDER_ID,
+  type: actionTypes.GET_ORDER_ID,
   payload,
 });
 

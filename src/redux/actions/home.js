@@ -1,17 +1,14 @@
 import { globalAPI } from '../../api/api';
 
-import {
-  SET_ITEMS,
-  SET_TOGGLE_LOADING,
-} from '../vars/vars';
+import { actionTypes } from "./actionTypes";
 
 export const setItems = (payload) => ({
-  type: SET_ITEMS,
+  type: actionTypes.SET_ITEMS,
   payload,
 });
 
 export const setToggleLoading = (payload) => ({
-  type: SET_TOGGLE_LOADING,
+  type: actionTypes.SET_TOGGLE_LOADING,
   payload,
 });
 

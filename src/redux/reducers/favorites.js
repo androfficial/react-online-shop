@@ -1,4 +1,4 @@
-import { SET_FAVORITES } from "../vars/vars";
+import { actionTypes } from "../actions/actionTypes";
 
 let initialState = {
   favoritesItems: [],
@@ -6,7 +6,7 @@ let initialState = {
 
 const favorites = (state = initialState, action) => {
   switch (action.type) {
-    case SET_FAVORITES:
+    case actionTypes.SET_FAVORITES:
       return {
         ...state,
         favoritesItems: action.payload,
