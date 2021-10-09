@@ -1,6 +1,6 @@
 ### Stack:
-* ReactJS + хуки
-* Redux
+* ReactJS + React Hooks
+* Redux + Redux Hooks
 * React Router 
 * React Skeleton
 * Axios
