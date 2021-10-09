@@ -1,4 +1,4 @@
-import { actionTypes } from "../actions/actionTypes";
+import { Types } from "../actions/home";
 
 let initialState = {
   items: [],
@@ -8,13 +8,13 @@ let initialState = {
 
 const home = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SET_ITEMS:
+    case Types.SET_ITEMS:
       return {
         ...state,
         items: action.payload,
         isLoaded: true,
       };
-    case actionTypes.SET_TOGGLE_LOADING:
+    case Types.SET_TOGGLE_LOADING:
       return {
         ...state,
         isProcessed: action.payload,

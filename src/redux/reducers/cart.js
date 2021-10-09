@@ -1,4 +1,4 @@
-import { actionTypes } from "../actions/actionTypes";
+import { Types } from "../actions/cart";
 
 let initialState = {
   cartItems: [],
@@ -10,12 +10,12 @@ let initialState = {
 
 const cart = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SET_CART_ITEMS:
+    case Types.SET_CART_ITEMS:
       return {
         ...state,
         cartItems: action.payload,
       };
-    case actionTypes.DEL_CART_ITEM:
+    case Types.DEL_CART_ITEM:
       return {
         ...state,
         cartItems: state.cartItems.filter(
@@ -23,17 +23,17 @@ const cart = (state = initialState, action) => {
         ),
         itemIsRemoved: true,
       };
-    case actionTypes.ITEM_IS_REMOVED:
+    case Types.ITEM_IS_REMOVED:
       return {
         ...state,
         itemIsRemoved: false,
       };
-    case actionTypes.SET_ORDER_STATUS:
+    case Types.SET_ORDER_STATUS:
       return {
         ...state,
         orderInProcessed: true,
       };
-    case actionTypes.GET_ORDER_ID:
+    case Types.GET_ORDER_ID:
       return {
         ...state,
         cartItems: [],

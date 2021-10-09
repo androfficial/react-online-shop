@@ -1,4 +1,4 @@
-import { actionTypes } from "../actions/actionTypes";
+import { Types } from "../actions/search";
 
 let initialState = {
   value: '',
@@ -6,12 +6,12 @@ let initialState = {
 
 const search = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SET_SEARCH_VALUE:
+    case Types.SET_SEARCH_VALUE:
       return {
         ...state,
         value: action.payload,
       };
-    case actionTypes.CLEAR_INPUT_FIELD:
+    case Types.CLEAR_INPUT_FIELD:
       return {
         ...state,
         value: '',

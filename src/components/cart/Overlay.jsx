@@ -6,7 +6,7 @@ import { numberWithSpaces, useCart } from "../../hooks/useCart";
 
 import { CloseSvg } from "../../assets/svg/home";
 import { ArrowRightSvg } from "../../assets/svg/overlay";
-import Info from "../auxiliary-components/Info";
+import Info from "../AuxiliaryComponents/Info";
 
 const Overlay = ({ visible, closeOverlay }) => {
   const dispatch = useDispatch();

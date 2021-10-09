@@ -1,9 +1,11 @@
 import { globalAPI } from "../../api/api";
 
-import { actionTypes } from "./actionTypes";
+export const Types = {
+  SET_ORDERS: 'ORDERS@SET_ORDERS',
+};
 
 export const setOrders = (payload) => ({
-  type: actionTypes.SET_ORDERS,
+  type: Types.SET_ORDERS,
   payload,
 });
 

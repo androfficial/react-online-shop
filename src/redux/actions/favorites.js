@@ -1,11 +1,13 @@
 import { globalAPI } from "../../api/api";
 
-import { actionTypes } from "./actionTypes";
-
 import { setToggleLoading } from "./home";
 
+export const Types = {
+  SET_FAVORITES: 'FAVORITES@SET_FAVORITES',
+};
+
 export const setFavorites = (payload) => ({
-  type: actionTypes.SET_FAVORITES,
+  type: Types.SET_FAVORITES,
   payload,
 });
 

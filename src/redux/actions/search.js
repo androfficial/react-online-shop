@@ -1,11 +1,14 @@
-import { actionTypes } from "./actionTypes";
+export const Types = {
+  SET_SEARCH_VALUE: 'SEARCH@SET_SEARCH_VALUE',
+  CLEAR_INPUT_FIELD: 'SEARCH@CLEAR_INPUT_FIELD',
+};
 
 export const setSearchValue = (payload) => ({
-  type: actionTypes.SET_SEARCH_VALUE,
+  type: Types.SET_SEARCH_VALUE,
   payload,
 });
 
 export const clearInputField = (payload) => ({
-  type: actionTypes.CLEAR_INPUT_FIELD,
+  type: Types.CLEAR_INPUT_FIELD,
   payload,
 });

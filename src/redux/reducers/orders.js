@@ -1,4 +1,4 @@
-import { actionTypes } from "../actions/actionTypes";
+import { Types } from "../actions/orders";
 
 let initialState = {
   orders: [],
@@ -6,7 +6,7 @@ let initialState = {
 
 const orders = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SET_ORDERS: {
+    case Types.SET_ORDERS: {
       const ordersItems = action.payload.reduce((prev, obj) => [...prev, ...obj.items], []);
       return {
         ...state,

@@ -37,7 +37,7 @@ export default () => {
           <Slide title="Daya Ais" span="Forever!" />
         </SwiperSlide>
         <SwiperSlide>
-          <Slide title="Mlk Way, Der Loi and Other" span="Hard!" />
+          <Slide title="Mlk Way, Der Loi and Other" span="Lovely!" />
         </SwiperSlide>
         <SwiperSlide>
           <Slide title="Dwn Wood" span="Ripply!" />
