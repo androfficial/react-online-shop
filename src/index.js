@@ -4,8 +4,8 @@ import { HashRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import './scss/style.scss';
-import store from './redux/store';
 import App from './App';
+import store from './redux/store';
 
 ReactDOM.render(
   <Router>
