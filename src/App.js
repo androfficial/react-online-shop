@@ -32,12 +32,12 @@ const App = () => {
     dispatch(setToCart(cartItems, obj));
   };
 
-  const onAddToFavorite = (obj) => {
-    dispatch(setToFavorites(favoritesItems, obj));
-  };
-
   const isItemAdded = (id) => {
     return cartItems.some((obj) => Number(obj.parentId) === Number(id));
+  };
+
+  const onAddToFavorite = (obj) => {
+    dispatch(setToFavorites(favoritesItems, obj));
   };
 
   const isFavAdded = (parentId) => {
