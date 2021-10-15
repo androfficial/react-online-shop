@@ -7,11 +7,11 @@
 * SCSS
 
 ### Routes:
-| Path         | Description       |
-|--------------|:-----------------:|
-| `/`          | Home page         |
-| `/orders`    | Order list        |
-| `/favorites` | Featured products |
+| Path         | Description         |
+|--------------|:-------------------:|
+| `/`          | *Home page*         |
+| `/orders`    | *Order list*        |
+| `/favorites` | *Featured products* |
 
 ### Demo:
 ### :sparkle: https://androfficial.github.io/react-online-shop
