@@ -7,7 +7,7 @@
 * SCSS
 
 ### Routes:
-| Path         | Description         |
+| Path :arrow_down:         | Description :arrow_down:         |
 |--------------|:-------------------:|
 | `/`          | *Home page*         |
 | `/orders`    | *Order list*        |
