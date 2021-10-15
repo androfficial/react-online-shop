@@ -7,4 +7,4 @@
 * SCSS
 
 ### Demo:
-#### :sparkle: https://androfficial.github.io/react-online-shop
+### :sparkle: https://androfficial.github.io/react-online-shop
