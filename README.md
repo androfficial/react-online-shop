@@ -7,7 +7,11 @@
 * SCSS
 
 ### Routes:
-- [/] Home page
+| Routes |
+|:----------------:|:---------:
+| / | Home page|
+| /orders | Order list | текст |
+| /favorites | Featured products | текст |
 
 ### Demo:
 ### :sparkle: https://androfficial.github.io/react-online-shop
