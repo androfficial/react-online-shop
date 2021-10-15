@@ -6,7 +6,8 @@
 * Axios
 * SCSS
 
-| ### Routes   |                   |
+### Routes:
+| Path         | Description       |
 |--------------|:-----------------:|
 | `/`          | Home page         |
 | `/orders`    | Order list        |
