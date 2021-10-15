@@ -13,7 +13,6 @@
 | `/`                     | *Home page*                      |
 | `/orders`               | *Order list*                     |
 | `/favorites`            | *Featured products*              |
-
 ---
 
 ### Demo:
