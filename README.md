@@ -7,8 +7,7 @@
 * SCSS
 
 ### Routes:
-|
-|------------|:-----------------:|
+||------------||:-----------------:||
 | /          | Home page         |
 | /orders    | Order list        |
 | /favorites | Featured products |
