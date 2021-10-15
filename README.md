@@ -7,7 +7,6 @@
 * SCSS
 
 ---
-
 ### Routes:
 | Path :arrow_down_small: | Description :information_source: |
 |-------------------------|:--------------------------------:|
