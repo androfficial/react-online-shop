@@ -7,7 +7,7 @@
 * SCSS
 
 ### Routes:
-| Routes |
+|  | Routes | |
 |:----------------:|:---------:
 | / | Home page|
 | /orders | Order list | текст |
