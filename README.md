@@ -1,5 +1,5 @@
 ### Stack:
-* ReactJS + React Hooks
+* ReactJS + Hooks
 * Redux
 * React Router 
 * React Skeleton
