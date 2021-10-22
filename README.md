@@ -1,7 +1,7 @@
 ### Stack:
-* ReactJS + Hooks
-* Redux
+* ReactJS + Hooks 
 * React Router 
+* Redux
 * React Skeleton
 * Mockapi.io
 * Axios
