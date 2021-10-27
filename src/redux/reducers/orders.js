@@ -1,4 +1,4 @@
-import { Types } from "../actions/orders";
+import { Types } from '../actions/orders';
 
 let initialState = {
   orders: [],

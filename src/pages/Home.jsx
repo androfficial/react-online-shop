@@ -1,32 +1,24 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { clearInputField, setSearchValue } from "../redux/actions/search";
-
-import { SearchSvg, CloseSvg } from "../assets/svg/home";
-import Product from "../components/Product/Product";
-import HomeSlider from "../components/HomeSlider/HomeSlider";
+import { SearchSvg, CloseSvg } from '../assets/svg/home';
+import { Product, HomeSlider } from '../components';
 
 const Home = ({ onAddToCart, onAddToFavorite, isItemAdded, isFavAdded }) => {
-  const dispatch = useDispatch();
+  const [searchValue, setSearchValue] = React.useState('');
   const { items, isLoaded, isProcessed } = useSelector(({ home }) => ({
     items: home.items,
     isLoaded: home.isLoaded,
     isProcessed: home.isProcessed,
   }));
-  const value = useSelector(({ search }) => search.value);
 
   const handleOnChange = (e) => {
-    dispatch(setSearchValue(e.target.value));
-  };
-
-  const handleClearInputField = () => {
-    dispatch(clearInputField());
+    setSearchValue(e.target.value);
   };
 
   const renderItems = () => {
     const filteredItems = items.filter((obj) =>
-      obj.title.toLowerCase().includes(value.toLowerCase())
+      obj.title.toLowerCase().includes(searchValue.toLowerCase()),
     );
     return (isLoaded ? filteredItems : [...Array(8)]).map((obj, index) => (
       <Product
@@ -53,7 +45,7 @@ const Home = ({ onAddToCart, onAddToFavorite, isItemAdded, isFavAdded }) => {
         <div className="products__top">
           <div className="products__text">
             <h1 className="products__title _title">
-              {value ? `Поиск по запросу: ${value}` : "Все кроссовки"}
+              {searchValue ? `Поиск по запросу: ${searchValue}` : 'Все кроссовки'}
             </h1>
           </div>
           <div className="products__search">
@@ -63,16 +55,15 @@ const Home = ({ onAddToCart, onAddToFavorite, isItemAdded, isFavAdded }) => {
             <input
               type="text"
               onChange={handleOnChange}
-              value={value}
+              value={searchValue}
               className="products__search-input input"
               placeholder="Поиск..."
             />
             <button
-              onClick={handleClearInputField}
+              onClick={() => setSearchValue('')}
               className={`products__btn-close close ${
-                value ? "_active" : "products__btn-close close"
-              }`}
-            >
+                searchValue ? '_active' : 'products__btn-close close'
+              }`}>
               <CloseSvg />
             </button>
           </div>

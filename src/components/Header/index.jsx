@@ -1,9 +1,9 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
-import { useCart } from "../../hooks/useCart";
+import { useCart } from '../../hooks/useCart';
 
-import { CartSvg, FavoriteSvg, ProfileSvg } from "../../assets/svg/header";
+import { CartSvg, FavoriteSvg, ProfileSvg } from '../../assets/svg/header';
 
 const Header = ({ showOverlay }) => {
   const { totalPriceWithSpaces } = useCart();
@@ -16,7 +16,7 @@ const Header = ({ showOverlay }) => {
           </Link>
           <div className="logo__info">
             <h3 className="logo__title">REACT SNEAKERS</h3>
-            <p className="logo__text">Магазин лучших кроссовок</p>
+            <p className="logo__text">Лучшие кроссовки только здесь</p>
           </div>
         </div>
         <ul className="header__info">
@@ -30,8 +30,7 @@ const Header = ({ showOverlay }) => {
             <NavLink
               to="/favorites"
               className="header__btn header__btn--like"
-              activeClassName="_active"
-            >
+              activeClassName="_active">
               <FavoriteSvg />
             </NavLink>
           </li>
@@ -39,8 +38,7 @@ const Header = ({ showOverlay }) => {
             <NavLink
               to="/orders"
               className="header__btn header__btn--profile"
-              activeClassName="_active"
-            >
+              activeClassName="_active">
               <ProfileSvg />
             </NavLink>
           </li>

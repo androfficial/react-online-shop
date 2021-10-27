@@ -1,41 +1,43 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { cartItemDel, checkout } from "../../redux/actions/cart";
-import { numberWithSpaces, useCart } from "../../hooks/useCart";
+import { cartActions } from '../../redux/actions';
 
-import { CloseSvg } from "../../assets/svg/home";
-import { ArrowRightSvg } from "../../assets/svg/overlay";
-import Info from "../AuxiliaryComponents/Info";
+import { numberWithSpaces, useCart } from '../../hooks/useCart';
 
-const Overlay = ({ visible, closeOverlay }) => {
+import { CloseSvg } from '../../assets/svg/home';
+import { ArrowRightSvg } from '../../assets/svg/overlay';
+import Info from '../Common/Info';
+
+const Cart = ({ visible, closeOverlay }) => {
   const dispatch = useDispatch();
   const { taxWithSpaces, totalPriceWithSpaces } = useCart();
-  const { cartItems, itemIsRemoved, orderInProcessed, orderId, inOrderPlaced } =
-    useSelector(({ cart }) => ({
+  const { cartItems, itemIsRemoved, orderInProcessed, orderId, inOrderPlaced } = useSelector(
+    ({ cart }) => ({
       cartItems: cart.cartItems,
       itemIsRemoved: cart.itemIsRemoved,
       orderInProcessed: cart.orderInProcessed,
       orderId: cart.orderId,
       inOrderPlaced: cart.inOrderPlaced,
-    }));
+    }),
+  );
 
   const overlayRef = React.useRef();
 
   React.useEffect(() => {
     if (visible) {
       document.body.style.cssText = `padding-right: ${
-        window.innerWidth - document.body.offsetWidth + "px"
+        window.innerWidth - document.body.offsetWidth + 'px'
       };
       overflow: hidden;`;
-      document.body.addEventListener("click", handleOutsideClick);
+      document.body.addEventListener('click', handleOutsideClick);
     }
   }, [visible]);
 
   const handleOutsideClick = (e) => {
     const path = e.path || (e.composedPath && e.composedPath());
     if (!path.includes(overlayRef.current)) {
-      document.body.removeEventListener("click", handleOutsideClick);
+      document.body.removeEventListener('click', handleOutsideClick);
       closeOverlay();
       setTimeout(() => {
         document.body.style.cssText = `padding-right: 0px;
@@ -45,7 +47,7 @@ const Overlay = ({ visible, closeOverlay }) => {
   };
 
   const handleCloseOverlay = () => {
-    document.body.removeEventListener("click", handleOutsideClick);
+    document.body.removeEventListener('click', handleOutsideClick);
     closeOverlay();
     setTimeout(() => {
       document.body.style.cssText = `padding-right: 0px;
@@ -54,15 +56,15 @@ const Overlay = ({ visible, closeOverlay }) => {
   };
 
   const onRemoveItem = (obj) => {
-    dispatch(cartItemDel(obj));
+    dispatch(cartActions.cartItemDel(obj));
   };
 
   const onClickOrder = () => {
-    dispatch(checkout(cartItems));
+    dispatch(cartActions.checkout(cartItems));
   };
 
   return (
-    <div className={`overlay ${visible ? "_active" : ""}`}>
+    <div className={`overlay ${visible ? '_active' : ''}`}>
       <div ref={overlayRef} className="overlay__body">
         <div className="overlay__content">
           <div className="overlay__top">
@@ -87,8 +89,7 @@ const Overlay = ({ visible, closeOverlay }) => {
                       <button
                         disabled={itemIsRemoved}
                         onClick={() => onRemoveItem(obj)}
-                        className="overlay__btn close"
-                      >
+                        className="overlay__btn close">
                         <CloseSvg />
                       </button>
                     </article>
@@ -112,8 +113,7 @@ const Overlay = ({ visible, closeOverlay }) => {
                   <button
                     disabled={orderInProcessed}
                     onClick={onClickOrder}
-                    className="info-order__checkout green-button"
-                  >
+                    className="info-order__checkout green-button">
                     Оформить заказ
                     <ArrowRightSvg />
                   </button>
@@ -123,16 +123,12 @@ const Overlay = ({ visible, closeOverlay }) => {
           ) : (
             <Info
               handleCloseOverlay={handleCloseOverlay}
-              imageUrl={
-                inOrderPlaced
-                  ? "images/cart/success.jpg"
-                  : "images/cart/box.jpg"
-              }
-              title={inOrderPlaced ? "Заказ оформлен!" : "Корзина пустая"}
+              imageUrl={inOrderPlaced ? 'images/cart/success.jpg' : 'images/cart/box.jpg'}
+              title={inOrderPlaced ? 'Заказ оформлен!' : 'Корзина пустая'}
               text={
                 inOrderPlaced
                   ? `Ваш заказ #${orderId} скоро будет передан курьерской доставке`
-                  : "Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."
+                  : 'Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.'
               }
             />
           )}
@@ -142,4 +138,4 @@ const Overlay = ({ visible, closeOverlay }) => {
   );
 };
 
-export default Overlay;
+export default Cart;

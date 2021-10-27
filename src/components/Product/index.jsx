@@ -3,7 +3,7 @@ import React from 'react';
 import { numberWithSpaces } from '../../hooks/useCart';
 
 import { AddedSvg, UnLikeSvg, NoAddedSvg, LikeSvg } from '../../assets/svg/product';
-import ProductLoadingSkeleton from './ProductLoadingSkeleton';
+import Skeleton from './Skeleton';
 
 const Product = ({
   id,
@@ -70,7 +70,7 @@ const Product = ({
           </div>
         </article>
       ) : (
-        <ProductLoadingSkeleton />
+        <Skeleton />
       )}
     </>
   );

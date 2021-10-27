@@ -1,4 +1,4 @@
-import { Types } from "../actions/cart";
+import { Types } from '../actions/cart';
 
 let initialState = {
   cartItems: [],
@@ -18,9 +18,7 @@ const cart = (state = initialState, action) => {
     case Types.DEL_CART_ITEM:
       return {
         ...state,
-        cartItems: state.cartItems.filter(
-          (item) => item.parentId !== action.payload.parentId
-        ),
+        cartItems: state.cartItems.filter((item) => item.parentId !== action.payload.parentId),
         itemIsRemoved: true,
       };
     case Types.ITEM_IS_REMOVED:

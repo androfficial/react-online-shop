@@ -1,15 +1,9 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import Empty from "../components/AuxiliaryComponents/Empty";
-import Product from "../components/Product/Product";
+import { Product, Empty } from '../components';
 
-const Favorites = ({
-  onAddToCart,
-  onAddToFavorite,
-  isItemAdded,
-  isFavAdded,
-}) => {
+const Favorites = ({ onAddToCart, onAddToFavorite, isItemAdded, isFavAdded }) => {
   const favoritesItems = useSelector(({ favorites }) => favorites.favoritesItems);
   return (
     <>

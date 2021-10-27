@@ -1,15 +1,15 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, EffectFade, Autoplay } from "swiper";
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, EffectFade, Autoplay } from 'swiper';
 
-import "swiper/swiper.min.css";
-import "swiper/components/navigation/navigation.min.css";
-import "swiper/components/effect-fade/effect-fade.min.css";
+import 'swiper/swiper.min.css';
+import 'swiper/components/navigation/navigation.min.css';
+import 'swiper/components/effect-fade/effect-fade.min.css';
 
-import Slide from "./Slide";
-import SliderNavigation from "./SliderNavigation";
+import Slide from './Slide';
+import SliderNavigation from './SliderNavigation';
 
-SwiperCore.use([ Navigation, EffectFade, Autoplay ]);
+SwiperCore.use([Navigation, EffectFade, Autoplay]);
 
 export default () => {
   const navigationPrevRef = React.useRef(null);
@@ -28,19 +28,15 @@ export default () => {
           crossFade: true,
         }}
         autoHeight={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-      >
+        >
         <SwiperSlide>
-          <Slide title="Daya Ais" span="Forever!" />
+          <Slide title="Superstar" imageUrl="images/home-slider/01.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <Slide title="Mlk Way, Der Loi and Other" span="Lovely!" />
+          <Slide title="Limited" imageUrl="images/home-slider/02.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <Slide title="Dwn Wood" span="Ripply!" />
+          <Slide title="Collection" imageUrl="images/home-slider/03.jpg" />
         </SwiperSlide>
       </Swiper>
       <SliderNavigation

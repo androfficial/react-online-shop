@@ -8,14 +8,14 @@ $maxWidth: 1250;
 #wrapper {
   width: calc(100vw - 170px);
   max-width: 1080px;
-  @include adaptiv-value("margin-top", 85, 20, 1);
+  @include adaptiv-value("margin-top", 40, 20, 1);
   margin-right: auto;
   margin-left: auto;
   min-height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: #fefefe;
   border-radius: 20px;
   @media (max-width: 768px) {
     width: calc(100vw - 80px); 
@@ -52,6 +52,9 @@ $maxWidth: 1250;
   padding-bottom: 45px;
   @include adaptiv-value("padding-left", 45, 20, 1);
   border-bottom: 1px solid #e7e7e7;
+  @media (max-width: 360px) {
+    padding-bottom: 60px;
+  }
   &__inner {
     height: 50px;
     display: flex;
@@ -179,6 +182,7 @@ $maxWidth: 1250;
     font-weight: 700;
     @include adaptiv-value("font-size", 20, 18, 1);
     line-height: 24px / 20px * 100%;
+    @include adaptiv-value("letter-spacing", 1.5, 0, 1);
     text-transform: uppercase;
     &:not(:last-child) {
       margin: 0px 0px 1px 0px;
@@ -186,6 +190,7 @@ $maxWidth: 1250;
   }
   &__text {
     line-height: 17px / 14px * 100%;
+    @include adaptiv-value("letter-spacing", 1, 0, 1);
     color: #9D9D9D;
   }
 }
@@ -199,7 +204,7 @@ $maxWidth: 1250;
   @include adaptiv-value("padding-bottom", 45, 25, 1);
   &__body {
     background-color: #F4EFE9;
-    border-radius: 20px;
+    border-radius: 15px;
     position: relative;
     @media (max-width: 480px) {
       width: calc(100% + 30px);
@@ -273,47 +278,32 @@ $maxWidth: 1250;
 }
 
 .slide {
-  display: flex;
-  @media (max-width: 992px) {
-    min-height: 300px;
-    align-items: center;
-    position: relative;
-  }
+  position: relative;
   &__body {
-    flex: 1 1 auto;
-    padding: 20px;
-    @media (max-width: 991px) {
-      text-align: center;
-      @include adaptiv-value("padding", 20, 5, 1);
-    }    
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: auto;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 10px 10px;
+    @include adaptiv-value("padding-left", 40, 10, 1);
   }
   &__logo {
-    @include adaptiv-value("width", 99, 75, 1);
-    @include adaptiv-value("height", 40, 30, 1);
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
     img {
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
     }
-    @media (min-width: 992px) {
-      &:not(:last-child) {
-        margin: 0px 0px 16px 0px;
-      }
-    } 
-    @media (max-width: 991px) {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      z-index: 10;
-    } 
   }
-  &__content {
-    padding-left: 40px;
-    @media (max-width: 991px) {
-      padding: 0px 13px;
-    }   
-  }
+  &__content {}
   &__title {
     font-weight: 700;
     @include adaptiv-value("font-size", 38, 22, 1);
@@ -349,6 +339,10 @@ $maxWidth: 1250;
     }
   }
   &__picture {
+      min-height: 300px; 
+      padding: 0px 0px 340px / 960px * 100% 0px;
+      overflow: hidden;
+      position: relative;
     img {
       position: absolute;
       top: 0;
@@ -356,22 +350,11 @@ $maxWidth: 1250;
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-    @media (max-width: 991px) {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-    }    
-    @media (min-width: 992px) {
-      display: block;
-      flex: 0 0 640px;
-      padding: 0px 0px 300px / 960px * 100% 0px;
-      overflow: hidden;
-      position: relative;
-    }
+      border-radius: 15px;
+      @media (max-width: 480px) {
+        border-radius: initial;
+      }
+    } 
   }
 }
 

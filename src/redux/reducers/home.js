@@ -1,4 +1,4 @@
-import { Types } from "../actions/home";
+import { Types } from '../actions/home';
 
 let initialState = {
   items: [],

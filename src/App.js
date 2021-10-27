@@ -1,35 +1,28 @@
-import React from "react";
-import { Route } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchCartData, setToCart } from "./redux/actions/cart";
-import { fetchFavotiresData, setToFavorites } from "./redux/actions/favorites";
-import { fetchOrdersData } from "./redux/actions/orders";
-import { fetchItemsData } from "./redux/actions/home";
+import { cartActions, favoritesActions, ordersActions, homeActions } from './redux/actions';
 
-import Header from "./components/Header/Header";
-import Home from "./pages/Home";
-import Favorites from "./pages/Favorites";
-import Orders from "./pages/Orders";
-import Overlay from "./components/Cart/Overlay";
+import { Home, Favorites, Orders } from './pages';
+
+import { Header, Cart } from './components';
 
 const App = () => {
   const dispatch = useDispatch();
   const [showOverlay, setShowOverlay] = React.useState(false);
   const cartItems = useSelector(({ cart }) => cart.cartItems);
-  const favoritesItems = useSelector(
-    ({ favorites }) => favorites.favoritesItems
-  );
+  const favoritesItems = useSelector(({ favorites }) => favorites.favoritesItems);
 
   React.useEffect(() => {
-    dispatch(fetchCartData());
-    dispatch(fetchFavotiresData());
-    dispatch(fetchOrdersData());
-    dispatch(fetchItemsData());
+    dispatch(cartActions.fetchCartData());
+    dispatch(favoritesActions.fetchFavoritesData());
+    dispatch(ordersActions.fetchOrdersData());
+    dispatch(homeActions.fetchItemsData());
   }, []);
 
   const onAddToCart = (obj) => {
-    dispatch(setToCart(cartItems, obj));
+    dispatch(cartActions.setToCart(cartItems, obj));
   };
 
   const isItemAdded = (id) => {
@@ -37,7 +30,7 @@ const App = () => {
   };
 
   const onAddToFavorite = (obj) => {
-    dispatch(setToFavorites(favoritesItems, obj));
+    dispatch(favoritesActions.setToFavorites(favoritesItems, obj));
   };
 
   const isFavAdded = (parentId) => {
@@ -76,10 +69,7 @@ const App = () => {
           <Route path="/orders" component={Orders} exact />
         </div>
       </main>
-      <Overlay
-        visible={showOverlay}
-        closeOverlay={() => setShowOverlay(false)}
-      />
+      <Cart visible={showOverlay} closeOverlay={() => setShowOverlay(false)} />
     </>
   );
 };

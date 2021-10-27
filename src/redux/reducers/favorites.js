@@ -1,4 +1,4 @@
-import { Types } from "../actions/favorites";
+import { Types } from '../actions/favorites';
 
 let initialState = {
   favoritesItems: [],
