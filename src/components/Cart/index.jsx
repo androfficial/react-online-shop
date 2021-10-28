@@ -24,37 +24,6 @@ const Cart = ({ visible, closeOverlay }) => {
 
   const overlayRef = React.useRef();
 
-  React.useEffect(() => {
-    if (visible) {
-      document.body.style.cssText = `padding-right: ${
-        window.innerWidth - document.body.offsetWidth + 'px'
-      };
-      overflow: hidden;`;
-      document.body.addEventListener('click', handleOutsideClick);
-    }
-  }, [visible]);
-
-  const handleOutsideClick = (e) => {
-    const path = e.path || (e.composedPath && e.composedPath());
-    if (!path.includes(overlayRef.current)) {
-      document.body.removeEventListener('click', handleOutsideClick);
-      closeOverlay();
-      setTimeout(() => {
-        document.body.style.cssText = `padding-right: 0px;
-        overflow: visible;`;
-      }, 500);
-    }
-  };
-
-  const handleCloseOverlay = () => {
-    document.body.removeEventListener('click', handleOutsideClick);
-    closeOverlay();
-    setTimeout(() => {
-      document.body.style.cssText = `padding-right: 0px;
-      overflow: visible;`;
-    }, 500);
-  };
-
   const onRemoveItem = (obj) => {
     dispatch(cartActions.cartItemDel(obj));
   };
@@ -63,6 +32,25 @@ const Cart = ({ visible, closeOverlay }) => {
     dispatch(cartActions.checkout(cartItems));
   };
 
+  const handleCloseOverlay = () => {
+    document.body.removeEventListener('click', handleOutsideClick);
+    closeOverlay();
+  };
+
+  const handleOutsideClick = React.useCallback((e) => {
+    const path = e.path || (e.composedPath && e.composedPath());
+    if (!path.includes(overlayRef.current)) {
+      document.body.removeEventListener('click', handleOutsideClick);
+      closeOverlay();
+    }
+  }, [closeOverlay]);
+
+  React.useEffect(() => {
+    if (visible) {
+      document.body.addEventListener('click', handleOutsideClick);
+    }
+  }, [visible, handleOutsideClick]);
+  
   return (
     <div className={`overlay ${visible ? '_active' : ''}`}>
       <div ref={overlayRef} className="overlay__body">

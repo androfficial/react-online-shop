@@ -19,7 +19,7 @@ const App = () => {
     dispatch(favoritesActions.fetchFavoritesData());
     dispatch(ordersActions.fetchOrdersData());
     dispatch(homeActions.fetchItemsData());
-  }, []);
+  }, [dispatch]);
 
   const onAddToCart = (obj) => {
     dispatch(cartActions.setToCart(cartItems, obj));

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, EffectFade, Autoplay } from 'swiper';
 
@@ -11,7 +12,7 @@ import SliderNavigation from './SliderNavigation';
 
 SwiperCore.use([Navigation, EffectFade, Autoplay]);
 
-export default () => {
+const HomeSlider = () => {
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
   return (
@@ -28,7 +29,10 @@ export default () => {
           crossFade: true,
         }}
         autoHeight={true}
-        >
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}>
         <SwiperSlide>
           <Slide title="Superstar" imageUrl="images/home-slider/01.jpg" />
         </SwiperSlide>
@@ -46,3 +50,5 @@ export default () => {
     </>
   );
 };
+
+export default HomeSlider;
