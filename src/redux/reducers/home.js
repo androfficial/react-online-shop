@@ -4,7 +4,6 @@ let initialState = {
   items: [],
   itemsTotalCount: 256,
   currentPage: 1,
-  isProcessed: false,
   isLoaded: false,
 };
 
@@ -15,11 +14,6 @@ const home = (state = initialState, action) => {
         ...state,
         items: action.payload,
         isLoaded: true,
-      };
-    case Types.SET_TOGGLE_LOADING:
-      return {
-        ...state,
-        isProcessed: action.payload,
       };
     case Types.SET_CURRENT_PAGE:
       return {

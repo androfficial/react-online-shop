@@ -11,10 +11,6 @@ const Actions = {
     type: Types.SET_ITEMS,
     payload,
   }),
-  setToggleLoading: (payload) => ({
-    type: Types.SET_TOGGLE_LOADING,
-    payload,
-  }),
   setCurrentPage: (payload) => ({
     type: Types.SET_CURRENT_PAGE,
     payload,

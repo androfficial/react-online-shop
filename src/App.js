@@ -11,6 +11,8 @@ import { Header, Cart } from './components';
 const App = () => {
   const dispatch = useDispatch();
   const [showOverlay, setShowOverlay] = React.useState(false);
+  const [isProcessed, setIsProcessed] = React.useState(false);
+
   const cartItems = useSelector(({ cart }) => cart.cartItems);
   const favoritesItems = useSelector(({ favorites }) => favorites.favoritesItems);
 
@@ -21,16 +23,20 @@ const App = () => {
     dispatch(homeActions.fetchItemsData());
   }, [dispatch]);
 
-  const onAddToCart = (obj) => {
-    dispatch(cartActions.setToCart(cartItems, obj));
+  const onAddToCart = async (obj) => {
+    setIsProcessed(true);
+    await dispatch(cartActions.setToCart(cartItems, obj));
+    setIsProcessed(false);
   };
 
   const isItemAdded = (id) => {
     return cartItems.some((obj) => Number(obj.parentId) === Number(id));
   };
 
-  const onAddToFavorite = (obj) => {
-    dispatch(favoritesActions.setToFavorites(favoritesItems, obj));
+  const onAddToFavorite = async (obj) => {
+    setIsProcessed(true);
+    await dispatch(favoritesActions.setToFavorites(favoritesItems, obj));
+    setIsProcessed(false);
   };
 
   const isFavAdded = (parentId) => {
@@ -46,6 +52,7 @@ const App = () => {
             path="/"
             render={() => (
               <Home
+                isProcessed={isProcessed}
                 onAddToCart={onAddToCart}
                 onAddToFavorite={onAddToFavorite}
                 isItemAdded={isItemAdded}
@@ -58,6 +65,7 @@ const App = () => {
             path="/favorites"
             render={() => (
               <Favorites
+                favoritesItems={favoritesItems}
                 onAddToCart={onAddToCart}
                 onAddToFavorite={onAddToFavorite}
                 isItemAdded={isItemAdded}

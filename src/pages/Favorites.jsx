@@ -1,10 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 import { Product, Empty } from '../components';
 
-const Favorites = ({ onAddToCart, onAddToFavorite, isItemAdded, isFavAdded }) => {
-  const favoritesItems = useSelector(({ favorites }) => favorites.favoritesItems);
+const Favorites = ({ favoritesItems, onAddToCart, onAddToFavorite, isItemAdded, isFavAdded }) => {
   return (
     <>
       {favoritesItems.length > 0 ? (

@@ -5,31 +5,34 @@ import { cartActions } from '../../redux/actions';
 
 import { numberWithSpaces, useCart } from '../../hooks/useCart';
 
-import { CloseSvg } from '../../assets/svg/home';
-import { ArrowRightSvg } from '../../assets/svg/overlay';
 import Info from '../Common/Info';
 
 const Cart = ({ visible, closeOverlay }) => {
   const dispatch = useDispatch();
+
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [orderInProcessed, setOrderInProcessed] = React.useState(false);
+  const [inOrderPlaced, setInOrderPlaced] = React.useState(false);
+
   const { taxWithSpaces, totalPriceWithSpaces } = useCart();
-  const { cartItems, itemIsRemoved, orderInProcessed, orderId, inOrderPlaced } = useSelector(
-    ({ cart }) => ({
-      cartItems: cart.cartItems,
-      itemIsRemoved: cart.itemIsRemoved,
-      orderInProcessed: cart.orderInProcessed,
-      orderId: cart.orderId,
-      inOrderPlaced: cart.inOrderPlaced,
-    }),
-  );
+  const { cartItems, orderId } = useSelector(({ cart }) => ({
+    cartItems: cart.cartItems,
+    orderId: cart.orderId,
+  }));
 
   const overlayRef = React.useRef();
 
-  const onRemoveItem = (obj) => {
-    dispatch(cartActions.cartItemDel(obj));
+  const onRemoveItem = async (obj) => {
+    setIsLoading(true);
+    await dispatch(cartActions.cartItemDel(obj));
+    setIsLoading(false);
   };
 
-  const onClickOrder = () => {
-    dispatch(cartActions.checkout(cartItems));
+  const onClickOrder = async () => {
+    setOrderInProcessed(true);
+    await dispatch(cartActions.checkout(cartItems));
+    setOrderInProcessed(false);
+    setInOrderPlaced(true);
   };
 
   const handleCloseOverlay = () => {
@@ -37,20 +40,23 @@ const Cart = ({ visible, closeOverlay }) => {
     closeOverlay();
   };
 
-  const handleOutsideClick = React.useCallback((e) => {
-    const path = e.path || (e.composedPath && e.composedPath());
-    if (!path.includes(overlayRef.current)) {
-      document.body.removeEventListener('click', handleOutsideClick);
-      closeOverlay();
-    }
-  }, [closeOverlay]);
+  const handleOutsideClick = React.useCallback(
+    (e) => {
+      const path = e.path || (e.composedPath && e.composedPath());
+      if (!path.includes(overlayRef.current)) {
+        document.body.removeEventListener('click', handleOutsideClick);
+        closeOverlay();
+      }
+    },
+    [closeOverlay],
+  );
 
   React.useEffect(() => {
     if (visible) {
       document.body.addEventListener('click', handleOutsideClick);
     }
   }, [visible, handleOutsideClick]);
-  
+
   return (
     <div className={`overlay ${visible ? '_active' : ''}`}>
       <div ref={overlayRef} className="overlay__body">
@@ -58,7 +64,10 @@ const Cart = ({ visible, closeOverlay }) => {
           <div className="overlay__top">
             <h2 className="overlay__title">Корзина</h2>
             <button onClick={handleCloseOverlay} className="overlay__btn close">
-              <CloseSvg />
+              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" fill="white" />
+                <path d="M20.0799 18.6155L17.6311 16.1667L20.0798 13.718C21.0241 12.7738 19.5596 11.3093 18.6154 12.2536L16.1667 14.7023L13.7179 12.2535C12.7738 11.3095 11.3095 12.7738 12.2535 13.7179L14.7023 16.1667L12.2536 18.6154C11.3093 19.5596 12.7738 21.0241 13.718 20.0798L16.1667 17.6311L18.6155 20.0799C19.5597 21.0241 21.0241 19.5597 20.0799 18.6155Z" />
+              </svg>
             </button>
           </div>
           {cartItems.length > 0 ? (
@@ -75,10 +84,13 @@ const Cart = ({ visible, closeOverlay }) => {
                         <span className="overlay__price">{numberWithSpaces(obj.price)} руб.</span>
                       </div>
                       <button
-                        disabled={itemIsRemoved}
+                        disabled={isLoading}
                         onClick={() => onRemoveItem(obj)}
                         className="overlay__btn close">
-                        <CloseSvg />
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" fill="white" />
+                          <path d="M20.0799 18.6155L17.6311 16.1667L20.0798 13.718C21.0241 12.7738 19.5596 11.3093 18.6154 12.2536L16.1667 14.7023L13.7179 12.2535C12.7738 11.3095 11.3095 12.7738 12.2535 13.7179L14.7023 16.1667L12.2536 18.6154C11.3093 19.5596 12.7738 21.0241 13.718 20.0798L16.1667 17.6311L18.6155 20.0799C19.5597 21.0241 21.0241 19.5597 20.0799 18.6155Z" />
+                        </svg>
                       </button>
                     </article>
                   </li>
@@ -103,7 +115,22 @@ const Cart = ({ visible, closeOverlay }) => {
                     onClick={onClickOrder}
                     className="info-order__checkout green-button">
                     Оформить заказ
-                    <ArrowRightSvg />
+                    <svg viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M1 7H14.7143"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M8.71436 1L14.7144 7L8.71436 13"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                   </button>
                 </div>
               </div>
