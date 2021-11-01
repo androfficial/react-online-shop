@@ -2,15 +2,19 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { SearchSvg, CloseSvg } from '../assets/svg/home';
-import { Product, HomeSlider } from '../components';
+import { Product, HomeSlider, Pagination } from '../components';
 
 const Home = ({ onAddToCart, onAddToFavorite, isItemAdded, isFavAdded }) => {
   const [searchValue, setSearchValue] = React.useState('');
-  const { items, isLoaded, isProcessed } = useSelector(({ home }) => ({
-    items: home.items,
-    isLoaded: home.isLoaded,
-    isProcessed: home.isProcessed,
-  }));
+  const { items, itemsTotalCount, currentPage, isLoaded, isProcessed } = useSelector(
+    ({ home }) => ({
+      items: home.items,
+      itemsTotalCount: home.itemsTotalCount,
+      currentPage: home.currentPage,
+      isLoaded: home.isLoaded,
+      isProcessed: home.isProcessed,
+    }),
+  );
 
   const handleOnChange = (e) => {
     setSearchValue(e.target.value);
@@ -69,6 +73,10 @@ const Home = ({ onAddToCart, onAddToFavorite, isItemAdded, isFavAdded }) => {
           </div>
         </div>
         <div className="products__items items-grid">{renderItems()}</div>
+        <Pagination
+          itemsTotalCount={itemsTotalCount}
+          currentPage={currentPage}
+        />
       </section>
     </>
   );

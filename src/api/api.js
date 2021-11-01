@@ -13,6 +13,14 @@ export const globalAPI = {
       alert('Ошибка при получении товаров.');
     }
   },
+  getNewItems(page) {
+    try {
+      return instance.get(`items/${page}`);
+    } catch (error) {
+      console.error(`Ошибка при получении товаров: ${error}`);
+      alert('Ошибка при получении товаров.');
+    }
+  },
   getCartItems() {
     try {
       return instance.get('cart');

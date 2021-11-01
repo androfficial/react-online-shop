@@ -3,6 +3,7 @@
 * React Router 
 * Redux
 * React Skeleton
+* React Paginate
 * Mockapi.io
 * Axios
 * SCSS
