@@ -20,6 +20,11 @@ const home = (state = initialState, action) => {
         ...state,
         currentPage: action.payload,
       };
+    case Types.SET_IS_LOADED:
+      return {
+        ...state,
+        isLoaded: action.payload,
+      };
     default:
       return state;
   }

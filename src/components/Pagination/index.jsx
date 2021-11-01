@@ -7,12 +7,9 @@ import { homeActions } from '../../redux/actions';
 
 const Pagination = ({ itemsTotalCount, currentPage }) => {
   const dispatch = useDispatch();
-  // const [loading, setLoading] = React.useState(false);
 
-  const handlePage = async ({ selected: page }) => {
-    // setLoading(true);
-    await dispatch(homeActions.fetchNewItems(page + 1));
-    // setLoading(false);
+  const handlePage = ({ selected: page }) => {
+    dispatch(homeActions.fetchNewItems(page + 1));
   };
 
   return (

@@ -20,7 +20,7 @@ const Home = ({ isProcessed, onAddToCart, onAddToFavorite, isItemAdded, isFavAdd
     const filteredItems = items.filter((obj) =>
       obj.title.toLowerCase().includes(searchValue.toLowerCase()),
     );
-    return (isLoaded ? filteredItems : [...Array(8)]).map((obj, index) => (
+    return (isLoaded ? filteredItems : [...Array(12)]).map((obj, index) => (
       <Product
         isProcessed={isProcessed}
         isLoaded={isLoaded}
