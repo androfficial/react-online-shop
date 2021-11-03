@@ -1025,3 +1025,37 @@ $maxWidth: 1250;
     }
   }
 }
+
+.error-404 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &__picture {
+    overflow: hidden;
+    svg {
+      width: 450px;
+      height: 150px;
+    }
+  }
+  &__title {
+    font-size: 20px;
+    line-height: 1.1;
+    letter-spacing: 12px;
+    color: darken(#b0afaf, 10%);
+    border-top: 1px solid #ef6258;
+    padding-top: 10px;
+    margin: 40px 0px;
+    text-transform: uppercase;
+  }
+  &__button-wrapper {
+    width: 245px;
+  }
+  &__button {
+    svg {
+      pointer-events: none;
+      left: 28px;
+    }
+  }
+}

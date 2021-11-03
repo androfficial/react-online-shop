@@ -1,12 +1,12 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { cartActions, favoritesActions, ordersActions, homeActions } from './redux/actions';
 
 import { Home, Favorites, Orders } from './pages';
 
-import { Header, Cart } from './components';
+import { Header, Cart, NotFound } from './components';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -48,33 +48,37 @@ const App = () => {
       <Header showOverlay={() => setShowOverlay(true)} />
       <main className="page">
         <div className="_container">
-          <Route
-            path="/"
-            render={() => (
-              <Home
-                isProcessed={isProcessed}
-                onAddToCart={onAddToCart}
-                onAddToFavorite={onAddToFavorite}
-                isItemAdded={isItemAdded}
-                isFavAdded={isFavAdded}
-              />
-            )}
-            exact
-          />
-          <Route
-            path="/favorites"
-            render={() => (
-              <Favorites
-                favoritesItems={favoritesItems}
-                onAddToCart={onAddToCart}
-                onAddToFavorite={onAddToFavorite}
-                isItemAdded={isItemAdded}
-                isFavAdded={isFavAdded}
-              />
-            )}
-            exact
-          />
-          <Route path="/orders" component={Orders} exact />
+          <Switch>
+            <Route
+              path="/"
+              render={() => (
+                <Home
+                  isProcessed={isProcessed}
+                  onAddToCart={onAddToCart}
+                  onAddToFavorite={onAddToFavorite}
+                  isItemAdded={isItemAdded}
+                  isFavAdded={isFavAdded}
+                />
+              )}
+              exact
+            />
+            <Route
+              path="/favorites"
+              render={({ history }) => (
+                <Favorites
+                  favoritesItems={favoritesItems}
+                  onAddToCart={onAddToCart}
+                  onAddToFavorite={onAddToFavorite}
+                  isItemAdded={isItemAdded}
+                  isFavAdded={isFavAdded}
+                  history={history}
+                />
+              )}
+              exact
+            />
+            <Route path="/orders" component={Orders} exact />
+            <Route path="*" component={NotFound} />
+          </Switch>
         </div>
       </main>
       <Cart visible={showOverlay} closeOverlay={() => setShowOverlay(false)} />

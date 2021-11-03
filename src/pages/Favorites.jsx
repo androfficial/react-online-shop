@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Product, Empty } from '../components';
 
-const Favorites = ({ favoritesItems, onAddToCart, onAddToFavorite, isItemAdded, isFavAdded }) => {
+const Favorites = ({ favoritesItems, onAddToCart, onAddToFavorite, isItemAdded, isFavAdded, history }) => {
   return (
     <>
       {favoritesItems.length > 0 ? (
@@ -28,6 +28,7 @@ const Favorites = ({ favoritesItems, onAddToCart, onAddToFavorite, isItemAdded, 
           imageUrl="images/favorites/sad.png"
           title="Закладок нет :("
           text="Вы ничего не добавляли в закладки."
+          history={history}
         />
       )}
     </>

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Info = ({ imageUrl, title, text }) => {
+const Info = ({ imageUrl, title, text, history }) => {
   return (
     <div className="overlay__phantom-block phantom-block">
       <div className="phantom-block__picture">
@@ -12,7 +11,7 @@ const Info = ({ imageUrl, title, text }) => {
         <p className="phantom-block__text">{text}</p>
       </div>
       <div className="phantom-block__go-back">
-        <Link to="/" className="phantom-block__btn green-button">
+        <a onClick={() => history.goBack()} href="/#" className="phantom-block__btn green-button">
           <svg
             width="16"
             height="14"
@@ -35,7 +34,7 @@ const Info = ({ imageUrl, title, text }) => {
             />
           </svg>
           Вернуться назад
-        </Link>
+        </a>
       </div>
     </div>
   );

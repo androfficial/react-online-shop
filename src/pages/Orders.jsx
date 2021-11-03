@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { Product, Empty } from '../components';
 
-const Orders = () => {
+const Orders = ({ history }) => {
   const orders = useSelector(({ orders }) => orders.orders);
   return (
     <>
@@ -23,6 +23,7 @@ const Orders = () => {
           imageUrl="images/orders/sad.png"
           title="У вас нет заказов"
           text="Оформите хотя бы один заказ."
+          history={history}
         />
       )}
     </>
