@@ -16,3 +16,4 @@
 | `/`                     | Home page                        |
 | `/orders`               | Order list                       |
 | `/favorites`            | Featured products                |
+| `/Any other`            | 404 page                |
