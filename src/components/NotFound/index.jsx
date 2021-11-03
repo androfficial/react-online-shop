@@ -29,7 +29,7 @@ const NotFound = ({ history }) => {
       </div>
       <h3 className="error-404__title">Страница не найдена</h3>
       <div className="error-404__button-wrapper">
-        <a onClick={() => history.goBack()} href="/#" className="error-404__button green-button">
+        <button onClick={() => history.goBack()} className="error-404__button green-button">
           <svg
             width="16"
             height="14"
@@ -52,7 +52,7 @@ const NotFound = ({ history }) => {
             />
           </svg>
           Вернуться назад
-        </a>
+        </button>
       </div>
     </div>
   );

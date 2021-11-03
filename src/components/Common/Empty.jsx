@@ -11,7 +11,7 @@ const Info = ({ imageUrl, title, text, history }) => {
         <p className="phantom-block__text">{text}</p>
       </div>
       <div className="phantom-block__go-back">
-        <a onClick={() => history.goBack()} href="/#" className="phantom-block__btn green-button">
+        <button onClick={() => history.goBack()} className="phantom-block__btn green-button">
           <svg
             width="16"
             height="14"
@@ -34,7 +34,7 @@ const Info = ({ imageUrl, title, text, history }) => {
             />
           </svg>
           Вернуться назад
-        </a>
+        </button>
       </div>
     </div>
   );
