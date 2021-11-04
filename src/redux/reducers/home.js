@@ -2,7 +2,7 @@ import { Types } from '../actions/home';
 
 let initialState = {
   items: [],
-  itemsTotalCount: 50,
+  itemsTotalCount: 100,
   pageSize: 12,
   currentPage: 1,
   isLoaded: false,
