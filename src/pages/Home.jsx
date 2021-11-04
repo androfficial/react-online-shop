@@ -5,9 +5,10 @@ import { Product, HomeSlider, Pagination } from '../components';
 
 const Home = ({ isProcessed, onAddToCart, onAddToFavorite, isItemAdded, isFavAdded }) => {
   const [searchValue, setSearchValue] = React.useState('');
-  const { items, itemsTotalCount, currentPage, isLoaded } = useSelector(({ home }) => ({
+  const { items, itemsTotalCount, pageSize, currentPage, isLoaded } = useSelector(({ home }) => ({
     items: home.items,
     itemsTotalCount: home.itemsTotalCount,
+    pageSize: home.pageSize,
     currentPage: home.currentPage,
     isLoaded: home.isLoaded,
   }));
@@ -78,7 +79,12 @@ const Home = ({ isProcessed, onAddToCart, onAddToFavorite, isItemAdded, isFavAdd
           </div>
         </div>
         <div className="products__items items-grid">{renderItems()}</div>
-        <Pagination itemsTotalCount={itemsTotalCount} currentPage={currentPage} />
+        <Pagination
+          isLoaded={isLoaded}
+          itemsTotalCount={itemsTotalCount}
+          pageSize={pageSize}
+          currentPage={currentPage}
+        />
       </section>
     </>
   );
