@@ -2,7 +2,8 @@ import { Types } from '../actions/home';
 
 let initialState = {
   items: [],
-  itemsTotalCount: 256,
+  itemsTotalCount: 50,
+  pageSize: 12,
   currentPage: 1,
   isLoaded: false,
 };
