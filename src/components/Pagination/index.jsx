@@ -16,6 +16,7 @@ const Pagination = ({ isLoaded, itemsTotalCount, pageSize, currentPage }) => {
     <div className="products__pagination pagination">
       <ReactPaginate
         breakLinkClassName={`pagination__link ${isLoaded ? '' : '_disabled'}`}
+        breakClassName="pagination__item"
         breakLabel="..."
         nextLinkClassName={`pagination__btn pagination__btn--next ${isLoaded ? '' : '_disabled'}`}
         nextLabel={
@@ -45,8 +46,8 @@ const Pagination = ({ isLoaded, itemsTotalCount, pageSize, currentPage }) => {
         renderOnZeroPageCount={null}
         containerClassName="pagination__list"
         pageClassName="pagination__item"
-        previousClassName="pagination__item"
-        nextClassName="pagination__item"
+        previousClassName="pagination__item pagination__item--prev"
+        nextClassName="pagination__item pagination__item--next"
         pageLinkClassName={`pagination__link ${isLoaded ? '' : '_disabled'}`}
         activeLinkClassName="_selected"
         disabledClassName="_disabled"
