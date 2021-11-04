@@ -5,7 +5,7 @@ import ReactPaginate from 'react-paginate';
 
 import { homeActions } from '../../redux/actions';
 
-const Pagination = ({ itemsTotalCount, currentPage }) => {
+const Pagination = ({ isLoaded, itemsTotalCount, pageSize, currentPage }) => {
   const dispatch = useDispatch();
 
   const handlePage = ({ selected: page }) => {
@@ -15,9 +15,9 @@ const Pagination = ({ itemsTotalCount, currentPage }) => {
   return (
     <div className="products__pagination pagination">
       <ReactPaginate
-        breakLinkClassName="pagination__link"
+        breakLinkClassName={`pagination__link ${isLoaded ? '' : '_disabled'}`}
         breakLabel="..."
-        nextLinkClassName="pagination__btn pagination__btn--next"
+        nextLinkClassName={`pagination__btn pagination__btn--next ${isLoaded ? '' : '_disabled'}`}
         nextLabel={
           <svg viewBox="0 0 24 24">
             <path
@@ -27,7 +27,9 @@ const Pagination = ({ itemsTotalCount, currentPage }) => {
             />
           </svg>
         }
-        previousLinkClassName="pagination__btn pagination__btn--prev"
+        previousLinkClassName={`pagination__btn pagination__btn--prev ${
+          isLoaded ? '' : '_disabled'
+        }`}
         previousLabel={
           <svg viewBox="0 0 24 24">
             <path
@@ -37,15 +39,15 @@ const Pagination = ({ itemsTotalCount, currentPage }) => {
             />
           </svg>
         }
-        pageRangeDisplayed={5}
-        pageCount={itemsTotalCount}
+        pageRangeDisplayed={4}
+        pageCount={Math.ceil(itemsTotalCount / pageSize)}
         marginPagesDisplayed="1"
         renderOnZeroPageCount={null}
         containerClassName="pagination__list"
         pageClassName="pagination__item"
         previousClassName="pagination__item"
         nextClassName="pagination__item"
-        pageLinkClassName="pagination__link"
+        pageLinkClassName={`pagination__link ${isLoaded ? '' : '_disabled'}`}
         activeLinkClassName="_selected"
         disabledClassName="_disabled"
         onPageChange={handlePage}
