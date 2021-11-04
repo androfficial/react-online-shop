@@ -27,7 +27,7 @@ $maxWidth: 1250;
 .page {
   flex: 1 1 auto;
   display: flex;
-  padding: 0px 0px 40px 0px;
+  @include adaptiv-value("padding-bottom", 40, 15, 1);
 }
 ._container {
   min-width: 0;
@@ -956,6 +956,9 @@ $maxWidth: 1250;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+  }
   &__btn {
     display: flex;
     align-items: center;
@@ -994,8 +997,17 @@ $maxWidth: 1250;
     grid-auto-rows: auto;
     align-items: center;
     column-gap: 8px;
+    @media (max-width: 768px) {
+      flex: 1 1 auto;
+      justify-content: space-between;
+    }
   }
   &__item {
+    @media (max-width: 768px) {
+      &:not(:first-child):not(:last-child) {
+        display: none;
+      }
+    }
     &._disabled {
       .pagination__btn {
         pointer-events: none;
