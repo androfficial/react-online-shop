@@ -8,7 +8,7 @@ $maxWidth: 1250;
 #wrapper {
   width: calc(100vw - 170px);
   max-width: 1080px;
-  @include adaptiv-value("margin-top", 40, 20, 1);
+  @include adaptiv-value('margin-top', 40, 20, 1);
   margin-right: auto;
   margin-left: auto;
   min-height: 100%;
@@ -18,16 +18,16 @@ $maxWidth: 1250;
   background-color: #fefefe;
   border-radius: 20px;
   @media (max-width: 768px) {
-    width: calc(100vw - 80px); 
+    width: calc(100vw - 80px);
   }
   @media (max-width: 480px) {
-    width: calc(100vw - 25px); 
+    width: calc(100vw - 25px);
   }
 }
 .page {
   flex: 1 1 auto;
   display: flex;
-  @include adaptiv-value("padding-bottom", 40, 15, 1);
+  @include adaptiv-value('padding-bottom', 40, 15, 1);
 }
 ._container {
   min-width: 0;
@@ -39,18 +39,18 @@ $maxWidth: 1250;
   padding: 0 60px;
   box-sizing: content-box;
   @media (max-width: 992px) {
-    padding: 0 30px; 
+    padding: 0 30px;
   }
   @media (max-width: 768px) {
-    padding: 0 15px; 
+    padding: 0 15px;
   }
 }
 
 .header {
-  @include adaptiv-value("padding-top", 45, 20, 1);
-  @include adaptiv-value("padding-right", 45, 20, 1);
+  @include adaptiv-value('padding-top', 45, 20, 1);
+  @include adaptiv-value('padding-right', 45, 20, 1);
   padding-bottom: 45px;
-  @include adaptiv-value("padding-left", 45, 20, 1);
+  @include adaptiv-value('padding-left', 45, 20, 1);
   border-bottom: 1px solid #e7e7e7;
   @media (max-width: 360px) {
     padding-bottom: 60px;
@@ -73,7 +73,7 @@ $maxWidth: 1250;
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: auto;
-    @include adaptiv-value("column-gap", 30, 15, 1);
+    @include adaptiv-value('column-gap', 30, 15, 1);
     @media (max-width: 630px) {
       justify-items: center;
     }
@@ -87,7 +87,7 @@ $maxWidth: 1250;
         &:hover {
           button {
             svg {
-              fill: #9B9B9B;
+              fill: #9b9b9b;
             }
           }
         }
@@ -106,23 +106,23 @@ $maxWidth: 1250;
     svg {
       pointer-events: none;
       path {
-        transition: stroke .3s ease 0s;
+        transition: stroke 0.3s ease 0s;
       }
     }
     &--cart {
       svg {
         fill: transparent;
-        transition: fill .3s ease 0s;
+        transition: fill 0.3s ease 0s;
         path {
-          stroke: #9B9B9B;
+          stroke: #9b9b9b;
         }
       }
     }
     &--like,
     &--profile {
       svg {
-        fill: #9B9B9B;
-        transition: fill .3s ease 0s;
+        fill: #9b9b9b;
+        transition: fill 0.3s ease 0s;
       }
     }
     &--like {
@@ -157,7 +157,7 @@ $maxWidth: 1250;
   &__item-price {
     font-weight: 600;
     line-height: 17px / 14px * 100%;
-    color: #5C5C5C;
+    color: #5c5c5c;
   }
 }
 .logo {
@@ -180,9 +180,9 @@ $maxWidth: 1250;
   }
   &__title {
     font-weight: 700;
-    @include adaptiv-value("font-size", 20, 18, 1);
+    @include adaptiv-value('font-size', 20, 18, 1);
     line-height: 24px / 20px * 100%;
-    @include adaptiv-value("letter-spacing", 1.5, 0, 1);
+    @include adaptiv-value('letter-spacing', 1.5, 0, 1);
     text-transform: uppercase;
     &:not(:last-child) {
       margin: 0px 0px 1px 0px;
@@ -190,8 +190,8 @@ $maxWidth: 1250;
   }
   &__text {
     line-height: 17px / 14px * 100%;
-    @include adaptiv-value("letter-spacing", 1, 0, 1);
-    color: #9D9D9D;
+    @include adaptiv-value('letter-spacing', 1, 0, 1);
+    color: #9d9d9d;
   }
 }
 
@@ -200,10 +200,10 @@ $maxWidth: 1250;
 }
 
 .main-slider {
-  @include adaptiv-value("padding-top", 45, 25, 1);
-  @include adaptiv-value("padding-bottom", 45, 25, 1);
+  @include adaptiv-value('padding-top', 45, 25, 1);
+  @include adaptiv-value('padding-bottom', 45, 25, 1);
   &__body {
-    background-color: #F4EFE9;
+    background-color: #f4efe9;
     border-radius: 15px;
     position: relative;
     @media (max-width: 480px) {
@@ -226,7 +226,7 @@ $maxWidth: 1250;
       @media (max-width: 480px) {
         display: none;
       }
-      .swiper-arrow {       
+      .swiper-arrow {
         pointer-events: auto;
         display: inline-flex;
         align-items: center;
@@ -236,15 +236,15 @@ $maxWidth: 1250;
         border-radius: 50%;
         background-color: #fff;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
-        transition: opacity .3s ease 0s, visibility .3s ease 0s, background-color .3s ease 0s;
+        transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s, background-color 0.3s ease 0s;
         &__prev,
         &__next {
           svg {
             width: 7px;
             height: 12px;
             path {
-              stroke: #C8C8C8;
-              transition: stroke .3s ease 0s;
+              stroke: #c8c8c8;
+              transition: stroke 0.3s ease 0s;
             }
           }
         }
@@ -254,7 +254,8 @@ $maxWidth: 1250;
           }
         }
         &__next {
-          svg {}
+          svg {
+          }
         }
         &.swiper-button-disabled {
           opacity: 0;
@@ -274,7 +275,8 @@ $maxWidth: 1250;
       }
     }
   }
-  &__slide {}
+  &__slide {
+  }
 }
 
 .slide {
@@ -289,7 +291,7 @@ $maxWidth: 1250;
     flex-direction: column;
     justify-content: center;
     padding: 10px 10px 10px;
-    @include adaptiv-value("padding-left", 40, 10, 1);
+    @include adaptiv-value('padding-left', 40, 10, 1);
   }
   &__logo {
     position: absolute;
@@ -303,12 +305,13 @@ $maxWidth: 1250;
       height: 100%;
     }
   }
-  &__content {}
+  &__content {
+  }
   &__title {
     font-weight: 700;
-    @include adaptiv-value("font-size", 38, 22, 1);
+    @include adaptiv-value('font-size', 38, 22, 1);
     line-height: 130%;
-    color: #8BB43C;
+    color: #8bb43c;
     span {
       color: #000;
     }
@@ -318,31 +321,31 @@ $maxWidth: 1250;
   }
   &__link {
     font-weight: 700;
-    @include adaptiv-value("font-size", 16, 14, 1);
+    @include adaptiv-value('font-size', 16, 14, 1);
     line-height: 19px;
     text-align: center;
     text-transform: uppercase;
-    color: #FFFFFF;
-    background-color: #A5D364;
+    color: #ffffff;
+    background-color: #a5d364;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    @include adaptiv-value("height", 47, 35, 1);
+    @include adaptiv-value('height', 47, 35, 1);
     border-radius: 110px;
     padding: 0 5px;
-    @include adaptiv-value("min-width", 177, 130, 1);
-    transition: background-color .3s ease 0s;
+    @include adaptiv-value('min-width', 177, 130, 1);
+    transition: background-color 0.3s ease 0s;
     @media (hover: hover) {
       &:hover {
-        background-color: darken(#A5D364, 10%);
+        background-color: darken(#a5d364, 10%);
       }
     }
   }
   &__picture {
-      min-height: 300px; 
-      padding: 0px 0px 340px / 960px * 100% 0px;
-      overflow: hidden;
-      position: relative;
+    min-height: 300px;
+    padding: 0px 0px 340px / 960px * 100% 0px;
+    overflow: hidden;
+    position: relative;
     img {
       position: absolute;
       top: 0;
@@ -354,14 +357,14 @@ $maxWidth: 1250;
       @media (max-width: 480px) {
         border-radius: initial;
       }
-    } 
+    }
   }
 }
 
 .products {
   display: flex;
   flex-direction: column;
-  @include adaptiv-value("padding-bottom", 20, 25, 1);
+  @include adaptiv-value('padding-bottom', 20, 25, 1);
   &__top {
     display: flex;
     align-items: flex-start;
@@ -382,7 +385,8 @@ $maxWidth: 1250;
       margin: 0px 0px 15px 0px;
     }
   }
-  &__title {}
+  &__title {
+  }
   &__search {
     flex: 0 0 250px;
     position: relative;
@@ -400,9 +404,9 @@ $maxWidth: 1250;
       border-radius: 10px;
       color: #000;
       padding: 0px 42px 0 45px;
-      transition: border-color .2s ease 0s;
+      transition: border-color 0.2s ease 0s;
       &::placeholder {
-        color: #C4C4C4;
+        color: #c4c4c4;
       }
       &:focus {
         border-color: darken(#dfdfdf, 10%);
@@ -423,8 +427,8 @@ $maxWidth: 1250;
       height: 16px;
       pointer-events: none;
       path {
-        stroke:#E4E4E4;
-        transition: stroke .3s ease 0s;
+        stroke: #e4e4e4;
+        transition: stroke 0.3s ease 0s;
       }
     }
     &-close {
@@ -438,7 +442,7 @@ $maxWidth: 1250;
       right: 8px;
       width: 28px;
       height: 28px;
-      transition: opacity .2s ease 0s, visibility 23s ease 0s, transform .3s ease 0s;
+      transition: opacity 0.2s ease 0s, visibility 23s ease 0s, transform 0.3s ease 0s;
       &._active {
         visibility: visible;
         opacity: 1;
@@ -450,7 +454,7 @@ $maxWidth: 1250;
       &:hover {
         svg {
           path {
-            stroke: darken(#E4E4E4, 12%);
+            stroke: darken(#e4e4e4, 12%);
           }
         }
       }
@@ -460,7 +464,8 @@ $maxWidth: 1250;
     flex: 1 1 auto;
     margin: 0px 0px 25px 0px;
   }
-  &__item {}
+  &__item {
+  }
 }
 .item-product {
   background-color: #fff;
@@ -469,7 +474,7 @@ $maxWidth: 1250;
   padding: 22px 28px 32px;
   overflow: hidden;
   position: relative;
-  transition: box-shadow .3s ease 0s, transform .3s ease 0s;
+  transition: box-shadow 0.3s ease 0s, transform 0.3s ease 0s;
   @media (hover: hover) {
     &:hover {
       box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.06);
@@ -488,7 +493,7 @@ $maxWidth: 1250;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform .7s ease 0s;
+      transition: transform 0.7s ease 0s;
     }
     @media (hover: hover) {
       &:hover {
@@ -525,23 +530,23 @@ $maxWidth: 1250;
       svg {
         rect,
         path {
-          transition: fill .3s ease 0s;
+          transition: fill 0.3s ease 0s;
         }
         rect {
-          fill: #FEF0F0;
+          fill: #fef0f0;
         }
         path {
-          fill: #FF8585;
+          fill: #ff8585;
         }
       }
       @media (hover: hover) {
         &:hover {
           svg {
             rect {
-              fill: darken(#FEF0F0, 5%);
+              fill: darken(#fef0f0, 5%);
             }
             path {
-              fill: darken(#FF8585, 8%);
+              fill: darken(#ff8585, 8%);
             }
           }
         }
@@ -551,7 +556,7 @@ $maxWidth: 1250;
       svg {
         rect,
         path {
-          transition: stroke .3s ease 0s;
+          transition: stroke 0.3s ease 0s;
         }
         rect {
           stroke: #dfdfdf;
@@ -577,11 +582,11 @@ $maxWidth: 1250;
       svg {
         rect {
           stroke: #dfdfdf;
-          transition: stroke .3s ease 0s;
+          transition: stroke 0.3s ease 0s;
         }
         path {
           fill: #d3d3d3;
-          transition: fill .3s ease 0s;
+          transition: fill 0.3s ease 0s;
         }
       }
       @media (hover: hover) {
@@ -606,7 +611,7 @@ $maxWidth: 1250;
   &__text {
     font-weight: 500;
     line-height: 17px / 14px * 100%;
-    transition: color .3s ease 0s;
+    transition: color 0.3s ease 0s;
     @media (hover: hover) {
       &:hover {
         color: lighten(#000, 25%);
@@ -621,7 +626,7 @@ $maxWidth: 1250;
     font-weight: 500;
     font-size: 11px;
     line-height: 13px / 11px * 100%;
-    color: #BDBDBD;
+    color: #bdbdbd;
     text-transform: uppercase;
   }
   &__details {
@@ -643,22 +648,22 @@ $maxWidth: 1250;
   svg {
     pointer-events: none;
     rect {
-      stroke: #DBDBDB;
-      transition: stroke .3s ease 0s;
+      stroke: #dbdbdb;
+      transition: stroke 0.3s ease 0s;
     }
     path {
-      fill: #B5B5B5;
-      transition: fill .3s ease 0s;
+      fill: #b5b5b5;
+      transition: fill 0.3s ease 0s;
     }
   }
   @media (hover: hover) {
     &:hover {
       svg {
         rect {
-          stroke: darken(#DBDBDB, 20%);
+          stroke: darken(#dbdbdb, 20%);
         }
         path {
-          fill: darken(#B5B5B5, 20%);
+          fill: darken(#b5b5b5, 20%);
         }
       }
     }
@@ -675,10 +680,10 @@ $maxWidth: 1250;
   width: 100%;
   height: 100%;
   z-index: 1000;
-  background-color: rgba(#000, .5);
+  background-color: rgba(#000, 0.5);
   overflow-y: auto;
   overflow-x: hidden;
-  transition: opacity .5s ease 0s, visibility .5s ease 0s;
+  transition: opacity 0.5s ease 0s, visibility 0.5s ease 0s;
   &._active {
     opacity: 1;
     visibility: visible;
@@ -694,22 +699,22 @@ $maxWidth: 1250;
     right: 0;
     height: 100%;
     width: 100%;
-    @include adaptiv-value("max-width", 420, 320, 1);
+    @include adaptiv-value('max-width', 420, 320, 1);
     background-color: #fff;
     box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
-    transition: transform .5s ease 0s;
+    transition: transform 0.5s ease 0s;
   }
   &__content {
     height: 100%;
     display: flex;
     flex-direction: column;
-    @include adaptiv-value("padding", 30, 15, 1);
+    @include adaptiv-value('padding', 30, 15, 1);
   }
   &__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @include adaptiv-value("margin-bottom", 30, 15, 1);
+    @include adaptiv-value('margin-bottom', 30, 15, 1);
     &--no-margin {
       margin: 0px 0px 0px 0px;
     }
@@ -720,7 +725,7 @@ $maxWidth: 1250;
   &__title {
     flex: 1 1 auto;
     font-weight: 700;
-    @include adaptiv-value("font-size", 24, 22, 1);
+    @include adaptiv-value('font-size', 24, 22, 1);
     line-height: 29px / 24px * 100%;
     padding: 0px 10px 0px 0px;
   }
@@ -732,7 +737,7 @@ $maxWidth: 1250;
   }
   &__item {
     &:not(:last-child) {
-      @include adaptiv-value("margin-bottom", 20, 15, 1);
+      @include adaptiv-value('margin-bottom', 20, 15, 1);
     }
   }
   &__product {
@@ -740,11 +745,11 @@ $maxWidth: 1250;
     display: grid;
     align-items: center;
     grid-template-columns: 80px 1fr 32px;
-    @include adaptiv-value("column-gap", 18, 12, 1);
+    @include adaptiv-value('column-gap', 18, 12, 1);
     background-color: #fff;
     border: 1px solid #dfdfdf;
     border-radius: 20px;
-    @include adaptiv-value("padding", 20, 12, 1);
+    @include adaptiv-value('padding', 20, 12, 1);
   }
   &__picture {
     width: 80px;
@@ -779,7 +784,8 @@ $maxWidth: 1250;
       cursor: not-allowed;
     }
   }
-  &__phantom-block {}
+  &__phantom-block {
+  }
 }
 .phantom-block {
   flex: 1 1 auto;
@@ -798,7 +804,7 @@ $maxWidth: 1250;
       width: 120px;
     }
     &:not(:last-child) {
-      margin: 0px 0px 20px 0px; 
+      margin: 0px 0px 20px 0px;
     }
     img {
       display: block;
@@ -823,7 +829,7 @@ $maxWidth: 1250;
   &__text {
     font-size: 16px;
     line-height: 24px / 16px * 100%;
-    color: rgba(#000, .4);
+    color: rgba(#000, 0.4);
   }
   &__go-back {
     width: 245px;
@@ -852,10 +858,11 @@ $maxWidth: 1250;
     column-gap: 8px;
     div {
       align-self: end;
-      border: 1px dashed #DFDFDF;    
+      border: 1px dashed #dfdfdf;
     }
   }
-  &__in-total {}
+  &__in-total {
+  }
   &__total {
     font-size: 16px;
     line-height: 19px / 16px * 100%;
@@ -866,8 +873,10 @@ $maxWidth: 1250;
     line-height: 19px / 16px * 100%;
     white-space: nowrap;
   }
-  &__tax {}
-  &__bottom {}
+  &__tax {
+  }
+  &__bottom {
+  }
   &__checkout {
     svg {
       right: 22px;
@@ -878,14 +887,13 @@ $maxWidth: 1250;
           transform: translate(-5px, -50%);
         }
       }
-    }  
+    }
   }
 }
 
-
 .favorites {
-  @include adaptiv-value("padding-top", 45, 25, 1);
-  @include adaptiv-value("padding-bottom", 45, 25, 1);
+  @include adaptiv-value('padding-top', 45, 25, 1);
+  @include adaptiv-value('padding-bottom', 45, 25, 1);
   &__top {
     &:not(:last-child) {
       margin: 0px 0px 40px 0px;
@@ -893,10 +901,9 @@ $maxWidth: 1250;
   }
 }
 
-
 .orders {
-  @include adaptiv-value("padding-top", 45, 25, 1);
-  @include adaptiv-value("padding-bottom", 45, 25, 1);
+  @include adaptiv-value('padding-top', 45, 25, 1);
+  @include adaptiv-value('padding-bottom', 45, 25, 1);
   &__top {
     &:not(:last-child) {
       margin: 0px 0px 40px 0px;
@@ -915,11 +922,11 @@ $maxWidth: 1250;
   justify-content: center;
   text-align: center;
   height: 55px;
-  background-color: #9DD558;
+  background-color: #9dd558;
   border-radius: 18px;
   padding: 0 5px;
   position: relative;
-  transition: background-color .3s ease 0s;
+  transition: background-color 0.3s ease 0s;
   svg {
     position: absolute;
     z-index: 1;
@@ -927,28 +934,27 @@ $maxWidth: 1250;
     transform: translate(0px, -50%);
     width: 16px;
     height: 14px;
-    transition: transform .3s ease 0s;
+    transition: transform 0.3s ease 0s;
   }
   &:disabled {
     background-color: #bebebe;
     cursor: not-allowed;
-    
   }
   @media (hover: hover) {
     &:not(:disabled):hover {
-      background-color: darken(#9DD558, 10%);
+      background-color: darken(#9dd558, 10%);
     }
   }
 }
 ._title {
   font-weight: 700;
-  @include adaptiv-value("font-size", 32, 24, 1);
+  @include adaptiv-value('font-size', 32, 24, 1);
   line-height: 39px / 32px * 100%;
 }
 .items-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  @include adaptiv-value("gap", 40, 25, 1);
+  @include adaptiv-value('gap', 40, 25, 1);
 }
 
 .pagination {
@@ -982,14 +988,15 @@ $maxWidth: 1250;
       width: 30px;
       height: 30px;
       fill: #3e77aa;
-      transition: fill .2s ease 0s;
+      transition: fill 0.2s ease 0s;
     }
     &--prev {
       svg {
         transform: rotate(180deg);
       }
     }
-    &--next {}
+    &--next {
+    }
   }
   &__list {
     display: grid;
@@ -1012,7 +1019,7 @@ $maxWidth: 1250;
       .pagination__btn {
         pointer-events: none;
         svg {
-          fill:#d2d2d2;
+          fill: #d2d2d2;
         }
       }
     }
@@ -1026,7 +1033,7 @@ $maxWidth: 1250;
     border-radius: 4px;
     text-align: center;
     cursor: pointer;
-    transition: color .2s ease 0s, border-color .2s ease 0s;
+    transition: color 0.2s ease 0s, border-color 0.2s ease 0s;
     @media (hover: hover) {
       &:hover {
         color: #f84147;
