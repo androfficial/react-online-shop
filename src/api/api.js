@@ -5,20 +5,11 @@ const instance = axios.create({
 });
 
 export const globalAPI = {
-  getItems() {
+  getItems(page = 1) {
     try {
-      return instance.get('items');
+      return instance.get(`items?page=${page}&limit=12`);
     } catch (error) {
       console.error(`Ошибка при получении товаров: ${error}`);
-      alert('Ошибка при получении товаров.');
-    }
-  },
-  getNewItems(page) {
-    try {
-      return instance.get(`items/${page}`);
-    } catch (error) {
-      console.error(`Ошибка при получении товаров: ${error}`);
-      alert('Ошибка при получении товаров.');
     }
   },
   getCartItems() {
@@ -26,7 +17,6 @@ export const globalAPI = {
       return instance.get('cart');
     } catch (error) {
       console.error(`Ошибка при получении товаров в корзине: ${error}`);
-      alert('Ошибка при получении товаров в корзине.');
     }
   },
   getFavoriteItems() {
@@ -34,7 +24,6 @@ export const globalAPI = {
       return instance.get('favorites');
     } catch (error) {
       console.error(`Ошибка при получении моих закладок: ${error}`);
-      alert('Ошибка при получении моих закладок.');
     }
   },
   getOrders() {
@@ -42,7 +31,6 @@ export const globalAPI = {
       return instance.get('orders');
     } catch (error) {
       console.error(`Ошибка при получении списка заказов: ${error}`);
-      alert('Ошибка при получении списка заказов.');
     }
   },
   addCartItem(obj) {
@@ -50,7 +38,6 @@ export const globalAPI = {
       return instance.post('cart', obj);
     } catch (error) {
       console.error(`Ошибка при добавлении товара в корзину: ${error}`);
-      alert('Ошибка при добавлении товара в корзину.');
     }
   },
   addFavoriteItem(obj) {
@@ -58,7 +45,6 @@ export const globalAPI = {
       return instance.post('favorites', obj);
     } catch (error) {
       console.error(`Ошибка при добавлении товара в избранное: ${error}`);
-      alert('Ошибка при добавлении товара в избранное.');
     }
   },
   delCartItem(obj) {
@@ -66,7 +52,6 @@ export const globalAPI = {
       return instance.delete(`cart/${obj.id}`);
     } catch (error) {
       console.error(`Ошибка при удалении товара с корзины: ${error}`);
-      alert('Ошибка при удалении товара с корзины.');
     }
   },
   delFavoriteItem(obj) {
@@ -74,7 +59,6 @@ export const globalAPI = {
       return instance.delete(`favorites/${obj.id}`);
     } catch (error) {
       console.error(`Ошибка при удалении с товара с моих закладок: ${error}`);
-      alert('Ошибка при удалении с товара с моих закладок.');
     }
   },
   confirmOrder(items) {
@@ -84,7 +68,6 @@ export const globalAPI = {
       });
     } catch (error) {
       console.error(`Ошибка при создании заказа: ${error}`);
-      alert('Ошибка при создании заказа.');
     }
   },
   clearCart(items) {
@@ -96,7 +79,6 @@ export const globalAPI = {
       });
     } catch (error) {
       console.error(`Ошибка при массовом удалении товаров с корзины: ${error}`);
-      alert('Ошибка при массовом удалении товаров с корзины.');
     }
   },
 };
