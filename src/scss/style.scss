@@ -950,6 +950,7 @@ $maxWidth: 1250;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   @include adaptiv-value("gap", 40, 25, 1);
 }
+
 .pagination {
   display: flex;
   flex-direction: row;
@@ -1022,6 +1023,12 @@ $maxWidth: 1250;
     }
     &._selected {
       border-color: #3e77aa;
+    }
+  }
+  &__btn,
+  &__link {
+    &._disabled {
+      pointer-events: none;
     }
   }
 }
