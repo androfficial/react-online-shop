@@ -27,8 +27,8 @@ const Actions = {
   fetchNewItems: (page) => async (dispatch) => {
     dispatch(Actions.setIsLoaded(false));
     dispatch(Actions.setCurrentPage(page));
-    // const { data } = await globalAPI.getNewItems(page);
-    // dispatch(Actions.setItems(data));
+    const { data } = await globalAPI.getItems(page);
+    dispatch(Actions.setItems(data));
   },
 }
 
