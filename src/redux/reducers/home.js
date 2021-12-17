@@ -1,14 +1,15 @@
 import { Types } from '../actions/home';
 
-let initialState = {
+const initialState = {
   items: [],
   itemsTotalCount: 100,
   pageSize: 12,
   currentPage: 1,
   isLoaded: false,
+  errorApi: false,
 };
 
-const home = (state = initialState, action) => {
+const home = (state = initialState, action = {}) => {
   switch (action.type) {
     case Types.SET_ITEMS:
       return {
@@ -25,6 +26,11 @@ const home = (state = initialState, action) => {
       return {
         ...state,
         isLoaded: action.payload,
+      };
+    case Types.SET_ERROR_API:
+      return {
+        ...state,
+        errorApi: action.payload,
       };
     default:
       return state;

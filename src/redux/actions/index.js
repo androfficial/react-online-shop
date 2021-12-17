@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 export { default as cartActions } from './cart';
 export { default as favoritesActions } from './favorites';
 export { default as homeActions } from './home';

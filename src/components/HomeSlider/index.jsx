@@ -24,23 +24,24 @@ const HomeSlider = () => {
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current,
         }}
-        effect={'fade'}
+        effect='fade'
         fadeEffect={{
           crossFade: true,
         }}
-        autoHeight={true}
+        autoHeight
         autoplay={{
           delay: 3500,
           disableOnInteraction: false,
-        }}>
+        }}
+      >
         <SwiperSlide>
-          <Slide title="Superstar" imageUrl="images/home-slider/01.jpg" />
+          <Slide title='Superstar' imageUrl='images/home-slider/01.jpg' />
         </SwiperSlide>
         <SwiperSlide>
-          <Slide title="Limited" imageUrl="images/home-slider/02.jpg" />
+          <Slide title='Limited' imageUrl='images/home-slider/02.jpg' />
         </SwiperSlide>
         <SwiperSlide>
-          <Slide title="Collection" imageUrl="images/home-slider/03.jpg" />
+          <Slide title='Collection' imageUrl='images/home-slider/03.jpg' />
         </SwiperSlide>
       </Swiper>
       <SliderNavigation

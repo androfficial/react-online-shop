@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import './scss/style.scss';
-import App from './App';
-import store from './redux/store';
+import store from '@redux/store';
+
+import App from '@components/App';
+import '@styles/style.scss';
 
 ReactDOM.render(
   <Router>
@@ -13,5 +14,5 @@ ReactDOM.render(
       <App />
     </Provider>
   </Router>,
-  document.getElementById('wrapper'),
+  document.getElementById('wrapper')
 );

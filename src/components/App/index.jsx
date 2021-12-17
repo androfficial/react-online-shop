@@ -2,11 +2,15 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { cartActions, favoritesActions, ordersActions, homeActions } from './redux/actions';
+import {
+  cartActions,
+  favoritesActions,
+  ordersActions,
+  homeActions,
+} from '@redux/actions';
 
-import { Home, Favorites, Orders } from './pages';
-
-import { Header, Cart, NotFound } from './components';
+import { Home, Favorites, Orders } from '@pages';
+import { Header, Cart, NotFound } from '@components';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -14,7 +18,9 @@ const App = () => {
   const [isProcessed, setIsProcessed] = React.useState(false);
 
   const cartItems = useSelector(({ cart }) => cart.cartItems);
-  const favoritesItems = useSelector(({ favorites }) => favorites.favoritesItems);
+  const favoritesItems = useSelector(
+    ({ favorites }) => favorites.favoritesItems
+  );
 
   React.useEffect(() => {
     dispatch(cartActions.fetchCartData());
@@ -29,9 +35,8 @@ const App = () => {
     setIsProcessed(false);
   };
 
-  const isItemAdded = (id) => {
-    return cartItems.some((obj) => Number(obj.parentId) === Number(id));
-  };
+  const isItemAdded = (id) =>
+    cartItems.some((obj) => Number(obj.parentId) === Number(id));
 
   const onAddToFavorite = async (obj) => {
     setIsProcessed(true);
@@ -39,18 +44,17 @@ const App = () => {
     setIsProcessed(false);
   };
 
-  const isFavAdded = (parentId) => {
-    return favoritesItems.some((obj) => obj.parentId === parentId);
-  };
+  const isFavAdded = (parentId) =>
+    favoritesItems.some((obj) => obj.parentId === parentId);
 
   return (
     <>
       <Header showOverlay={() => setShowOverlay(true)} />
-      <main className="page">
-        <div className="_container">
+      <main className='page'>
+        <div className='_container'>
           <Switch>
             <Route
-              path="/"
+              path='/'
               render={() => (
                 <Home
                   isProcessed={isProcessed}
@@ -63,7 +67,7 @@ const App = () => {
               exact
             />
             <Route
-              path="/favorites"
+              path='/favorites'
               render={({ history }) => (
                 <Favorites
                   favoritesItems={favoritesItems}
@@ -76,8 +80,8 @@ const App = () => {
               )}
               exact
             />
-            <Route path="/orders" component={Orders} exact />
-            <Route path="*" component={NotFound} />
+            <Route path='/orders' component={Orders} exact />
+            <Route path='*' component={NotFound} />
           </Switch>
         </div>
       </main>

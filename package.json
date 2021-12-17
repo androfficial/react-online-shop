@@ -2,14 +2,23 @@
   "name": "react-dev",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "eject": "react-scripts eject",
+    "eslint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
+    "eslint:fix": "eslint --fix . --ext .js,.jsx --ignore-path .gitignore",
+    "stylelint": "stylelint src/styles/**/*.{sass,scss}",
+    "stylelint:fix": "stylelint --fix src/styles/**/*.{sass,scss}",
+    "format": "prettier --check . !src/styles/mixins/mixins.scss --ignore-path .gitignore",
+    "format:fix": "prettier -w . !src/styles/mixins/mixins.scss --ignore-path .gitignore"
+  },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
     "axios": "^0.24.0",
-    "gh-pages": "^3.2.3",
-    "node-sass": "^6.0.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
+    "react-app-rewire-alias": "^1.1.5",
+    "react-app-rewired": "^2.1.8",
     "react-content-loader": "^6.0.3",
     "react-dom": "^17.0.2",
     "react-paginate": "^7.1.5",
@@ -20,19 +29,31 @@
     "redux-thunk": "^2.3.0",
     "swiper": "^6.8.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build",
-    "predeploy": "npm run build"
+  "peerDependencies": {
+    "postcss": "^8.4.5",
+    "stylelint": "^14.1.0"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "postcss": "^8.4.5",
+    "prettier": "^2.5.1",
+    "sass": "^1.45.0",
+    "stylelint": "^14.1.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-recommended": "^6.0.0",
+    "stylelint-config-recommended-scss": "^5.0.2",
+    "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
+    "stylelint-prettier": "^2.0.0",
+    "stylelint-webpack-plugin": "^3.1.0"
   },
   "browserslist": {
     "production": [
